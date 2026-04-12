@@ -116,10 +116,16 @@
   .subsidy-text p { font-size: 14px; line-height: 1.6; }
 
   #plans { background: var(--light); }
-  .plans-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+  .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .plan-card { background: var(--white); border: 2px solid var(--border); padding: 32px 28px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.2s, transform 0.2s; }
   .plan-card:hover { border-color: var(--black); transform: translateY(-4px); }
   .plan-card.featured { border-color: var(--accent); }
+  .plan-card.pro { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+  .plan-card.pro .plan-features { margin-top: 0; }
+  @media (max-width: 700px) {
+    .plans-grid { grid-template-columns: 1fr; }
+    .plan-card.pro { grid-template-columns: 1fr; }
+  }
   .plan-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); }
   .plan-name { font-size: 20px; font-weight: 900; }
   .plan-price { font-family: 'Oswald', sans-serif; font-size: 40px; font-weight: 700; line-height: 1; }
@@ -273,7 +279,7 @@
       <div class="result-item"><div class="result-num">03</div><div class="result-text">スポーツトレーナー向け<br>顧客・予約管理アプリの開発</div></div>
       <div class="result-item"><div class="result-num">04</div><div class="result-text">オンライン販売サイトの<br>収益管理ツール開発</div></div>
       <div class="result-item"><div class="result-num">05</div><div class="result-text">資産管理ツールの<br>設計・構築</div></div>
-      <div class="result-item"><div class="result-num">05</div><div class="result-text">経営改善、事業再生<br>設計・構築</div></div>
+      <div class="result-item"><div class="result-num">06</div><div class="result-text">経営改善、事業再生<br>設計・構築</div></div>
     </div>
     <div class="subsidy-box">
       <div class="subsidy-icon">💡</div>
@@ -345,13 +351,15 @@
       </div>
 
       <!-- プロコース -->
-      <div class="plan-card">
-        <div class="plan-badge">STEP 4 ／ 本格自動化・伴走支援</div>
-        <div class="plan-name">プロコース</div>
-        <div class="plan-price">¥50,000〜 <small>/ 月</small></div>
-        <div class="plan-tagline">AIを使いこなせる人材を、御社に。業務改善から助成金申請まで、すべて寄り添います。</div>
-        <hr class="plan-divider">
-        <div class="plan-detail"><strong>AI・アプリ制作＋御社専属の伴走支援</strong><br>月2回 Zoom または対面MTG<br>月次レポート作成あり／内容により応相談</div>
+      <div class="plan-card pro">
+        <div>
+          <div class="plan-badge">STEP 4 ／ 本格自動化・伴走支援</div>
+          <div class="plan-name">プロコース</div>
+          <div class="plan-price">¥50,000〜 <small>/ 月</small></div>
+          <div class="plan-tagline">社員を一人雇うならこちら。AIを使いこなす人材を御社へ<br>業務改善から助成金申請まで、すべて寄り添います。</div>
+          <hr class="plan-divider">
+          <div class="plan-detail"><strong>AI・アプリ制作＋御社専属の伴走支援</strong><br>月2回 Zoom または対面MTG<br>月次レポート作成あり／内容により応相談</div>
+        </div>
         <ul class="plan-features">
           <li><span class="ok">✓</span> 月2回 Zoom または対面MTG</li>
           <li><span class="ok">✓</span> 毎月1件以上ツール・アプリ構築</li>
@@ -359,14 +367,13 @@
           <li><span class="ok">✓</span> 業務改善の提案・実行サポート</li>
           <li><span class="ok">✓</span> 助成金・補助金の申請サポート</li>
           <li><span class="ok">✓</span> 月次レポート作成・提出</li>
-          
         </ul>
       </div>
 
     </div>
     <div class="plan-note">
       ※ ランクアップはいつでも相談しながら切り替えできます。無理な勧誘は一切しません。<br>
-      ※ 外部ツール（Make・Zapier等）の利用料が発生する場合は別途実費請求します。事前にご説明します。<br>
+      ※ 外部ツール（Make・Zapier等）の利用料が発生する場合は事前にご説明します。<br>
       ※ 決済はPayPayや振り込み、クレジットカード自動引落しなど選択可能です。
     </div>
   </div>

@@ -8,12 +8,12 @@
 <meta name="description" content="佐世保・長崎・佐賀の中小企業向けAI導入・業務自動化・HP制作サービス。アサヒ屋がDX推進をサポートします。">
 <meta name="keywords" content="AI業務自動化,業務効率化,人手不足解決,小規模事業者,個人事業主,アプリ制作,月額,安い,自動化ツール,業務改善,助成金申請,IT導入補助金,佐世保 AI,長崎 業務自動化,佐賀 ホームページ制作,佐世保 DX,長崎 HP制作">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://asahiya-ai.jp/">
+<link rel="canonical" href="https://asahiya-ai.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="月5,000円からAI業務自動化｜小規模事業者専門【アサヒ屋】">
 <meta property="og:description" content="人が辞めた・採用より先に自動化。月5,000円からAIが24時間働きます。無料相談受付中。">
-<meta property="og:url" content="https://asahiya-ai.jp/">
+<meta property="og:url" content="https://asahiya-ai.com/">
 <meta property="og:site_name" content="アサヒ屋">
 <meta property="og:locale" content="ja_JP">
 
@@ -27,7 +27,7 @@
   "@type": "ProfessionalService",
   "name": "アサヒ屋",
   "description": "小規模事業者・個人事業主専門のAI業務自動化サービス。アプリ制作・業務効率化・助成金申請サポートまで対応。",
-  "url": "https://asahiya-ai.jp/",
+  "url": "https://asahiya-ai.com/",
   "priceRange": "¥5,000〜¥50,000/月",
   "serviceType": ["AI業務自動化", "アプリ制作", "業務改善コンサルティング", "助成金申請サポート"],
   "areaServed": {"@type": "Country", "name": "Japan"},
@@ -168,6 +168,32 @@
   footer { background: #0A0A0A; padding: 32px 40px; text-align: center; }
   .footer-sub { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
   .footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+
+  .line-float-btn {
+    position: fixed !important;
+    bottom: 30px;
+    right: 30px;
+    background-color: #06C755;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+  @media (max-width: 640px) {
+    .line-float-btn {
+      bottom: 16px;
+      right: 16px;
+      font-size: 14px;
+      padding: 12px 16px;
+    }
+  }
 
   @media (max-width: 640px) {
     header { padding: 0 20px; }
@@ -447,6 +473,10 @@
         <strong>💻 Zoom相談</strong>
         <p>30分無料<br>完全予約制</p>
       </div>
+      <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" class="contact-method" style="text-decoration:none;color:inherit;background:#06C755;border-color:#06C755;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        <strong>💬 LINEで相談</strong>
+        <p style="color:rgba(255,255,255,0.8);">一番かんたん<br>気軽にメッセージを</p>
+      </a>
     </div>
     <form action="https://formspree.io/f/xjgpoqvq" method="POST" style="display:flex;flex-direction:column;gap:16px;max-width:600px;margin-bottom:24px;">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
@@ -481,8 +511,9 @@
       <div style="display:flex;flex-direction:column;gap:6px;">
         <label style="font-size:13px;color:rgba(255,255,255,0.6);">初回相談方法</label>
         <select name="contact_method" style="padding:12px 16px;background:#222;border:1px solid rgba(255,255,255,0.2);color:var(--white);font-size:14px;outline:none;font-family:'Noto Sans JP',sans-serif;">
-          <option value="phone">電話</option>
+          <option value="line">💬 LINEで相談</option>
           <option value="zoom">Zoom</option>
+          <option value="phone">電話</option>
         </select>
       </div>
       <button type="submit" class="btn-primary" style="align-self:flex-start;cursor:pointer;border:none;">送信する</button>
@@ -515,6 +546,13 @@
     });
   });
 </script>
+
+<!-- LINE浮きボタン -->
+<a href="https://line.me/R/ti/p/@340uxupd"
+   target="_blank"
+   class="line-float-btn">
+  💬 無料相談はこちら
+</a>
 
 </body>
 </html>

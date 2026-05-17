@@ -8,14 +8,18 @@
 <meta property="og:title" content="三宅 耕平 | AIのアサヒ屋">
 <meta property="og:description" content="業務改善・AIコンサルタント / 地方の小さな会社に、AIで風を。">
 <meta property="og:type" content="profile">
+<meta property="og:image" content="./logo.png">
+<link rel="icon" href="./logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
   body{font-family:'Noto Sans JP',-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(180deg,#FFF8F5 0%,#FFFFFF 100%);min-height:100vh;color:#1a1a1a;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  .container{max-width:420px;margin:0 auto;padding:40px 20px 32px;}
-  .photo{width:130px;height:130px;margin:0 auto 20px;border-radius:50%;border:4px solid #E8401C;background:#FAECE7 url('./photo.jpg') center/cover no-repeat;box-shadow:0 6px 20px rgba(232,64,28,0.15);}
+  .container{max-width:420px;margin:0 auto;padding:32px 20px;}
+  .logo-wrap{text-align:center;margin-bottom:20px;}
+  .logo{max-width:180px;width:100%;height:auto;}
+  .photo{width:130px;height:130px;margin:0 auto 20px;border-radius:50%;border:4px solid #E8401C;background:#FAECE7 url('./photo.png') center/cover no-repeat;box-shadow:0 6px 20px rgba(232,64,28,0.15);}
   .name{text-align:center;font-size:26px;font-weight:700;margin-bottom:6px;letter-spacing:0.02em;}
   .title{text-align:center;font-size:14px;color:#666;margin-bottom:18px;}
   .tagline{display:block;text-align:center;margin-bottom:32px;}
@@ -26,7 +30,8 @@
   .icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;margin-right:14px;flex-shrink:0;}
   .icon svg{width:22px;height:22px;}
   .icon.fb{background:#1877F2;}
-  .icon.ag{background:#E8401C;font-weight:700;font-size:20px;}
+  .icon.ag{background:#fff;border:1px solid rgba(0,0,0,0.06);padding:4px;}
+  .icon.ag img{width:100%;height:100%;object-fit:contain;}
   .icon.ig{background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);}
   .icon.line{background:#06C755;}
   .label{flex:1;}
@@ -38,6 +43,9 @@
 </head>
 <body>
   <div class="container">
+    <div class="logo-wrap">
+      <img src="./logo.png" alt="AIのアサヒ屋" class="logo">
+    </div>
     <div class="photo" role="img" aria-label="三宅 耕平のプロフィール写真"></div>
     <h1 class="name">三宅 耕平</h1>
     <p class="title">業務改善・AIコンサルタント</p>
@@ -56,7 +64,9 @@
       </a>
 
       <a href="https://asahiya-ai.com/" class="link" target="_blank" rel="noopener">
-        <div class="icon ag">A</div>
+        <div class="icon ag">
+          <img src="./logo.png" alt="">
+        </div>
         <div class="label">
           <div class="label-main">AIのアサヒ屋</div>
           <div class="label-sub">ホームページ</div>

@@ -79,6 +79,12 @@
   .hero-sub { font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: var(--black); margin-bottom: 16px; line-height: 1.6; }
   .hero-desc { font-size: 16px; color: var(--gray); margin-bottom: 48px; max-width: 600px; }
   .hero-desc strong { color: var(--accent); }
+  .hero-layout{display:flex;align-items:center;gap:48px;}
+  .hero-text{flex:1;min-width:0;}
+  .hero-illust{flex:0 0 auto;width:min(400px,42vw);}
+  .hero-illust img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);}
+  .hero-quote{font-family:'Yuji Syuku',serif;font-size:clamp(15px,2vw,20px);color:var(--accent);margin-bottom:20px;letter-spacing:0.08em;font-weight:700;}
+  @media(max-width:768px){.hero-layout{flex-direction:column-reverse;}.hero-illust{width:100%;}}
   .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary { background: var(--accent); color: var(--white); padding: 16px 36px; font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s, transform 0.2s; display: inline-block; }
   .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
@@ -236,17 +242,25 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
-    <div style="text-align:center;margin-bottom:8px;">
-      <img src="images/logo.png" alt="AIのアサヒ屋" style="width:min(560px,90vw);height:auto;display:inline-block;background-color:white;padding:10px;">
-      <div style="font-family:'Yuji Syuku',serif;font-size:16px;color:#444;letter-spacing:0.15em;margin-top:2px;">― AI活用・業務効率化サポート ―</div>
-    </div>
-    <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
-    <h1 class="hero-catch">人が辞めた・・・<br><span class="accent">チャンスです。</span></h1>
-    <p class="hero-sub">採用より先に自動化。<br>人を増やさなくても、仕事は回る。</p>
-    <p class="hero-desc">パート採用の前に、まず<strong>月5,000円からのAI業務自動化</strong>を試してみませんか？</p>
-    <div class="btn-group">
-      <a href="#plans" class="btn-primary">サービスを見る</a>
-      <a href="#contact" class="btn-secondary">まずは相談する</a>
+    <div class="hero-layout">
+      <div class="hero-text">
+        <div style="margin-bottom:14px;">
+          <img src="images/logo.png" alt="AIのアサヒ屋" style="width:min(260px,70vw);height:auto;display:inline-block;background-color:white;padding:8px;">
+          <div style="font-family:'Yuji Syuku',serif;font-size:14px;color:#444;letter-spacing:0.15em;margin-top:4px;">― AI活用・業務効率化サポート ―</div>
+        </div>
+        <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
+        <h1 class="hero-catch">人が辞めた・・・<br><span class="accent">チャンスです。</span></h1>
+        <p class="hero-sub">日々の"面倒"を、AIで解決。<br>採用より先に自動化。</p>
+        <p class="hero-quote">「仕事にAIを、家庭に愛を」</p>
+        <p class="hero-desc">パート採用の前に、まず<strong>月5,000円からのAI業務自動化</strong>を試してみませんか？</p>
+        <div class="btn-group">
+          <a href="#plans" class="btn-primary">サービスを見る</a>
+          <a href="#contact" class="btn-secondary">まずは相談する</a>
+        </div>
+      </div>
+      <div class="hero-illust">
+        <img src="fb_cover.png" alt="AIのアサヒ屋イラスト">
+      </div>
     </div>
   </div>
 </section>

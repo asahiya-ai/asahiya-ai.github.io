@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>アサヒ屋｜佐世保・長崎・佐賀・九州のAI業務自動化・HP制作</title>
+<title>AIのアサヒ屋｜佐世保・長崎・佐賀・九州のAI業務自動化・HP制作</title>
 <meta name="description" content="佐世保・長崎・佐賀の中小企業向けAI導入・業務自動化・HP制作サービス。アサヒ屋がDX推進をサポートします。">
 <meta name="keywords" content="AI業務自動化,業務効率化,人手不足解決,小規模事業者,個人事業主,アプリ制作,月額,安い,自動化ツール,業務改善,助成金申請,IT導入補助金,佐世保 AI,長崎 業務自動化,佐賀 ホームページ制作,佐世保 DX,長崎 HP制作">
 <meta name="robots" content="index, follow">
@@ -25,7 +25,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "アサヒ屋",
+  "name": "AIのアサヒ屋",
   "description": "小規模事業者・個人事業主専門のAI業務自動化サービス。アプリ制作・業務効率化・助成金申請サポートまで対応。",
   "url": "https://asahiya-ai.com/",
   "priceRange": "¥5,000〜¥150,000/月",
@@ -87,6 +87,35 @@
   .hero-illust img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);}
   .hero-quote{font-family:'Yuji Syuku',serif;font-size:clamp(15px,2vw,20px);color:var(--accent);margin-bottom:20px;letter-spacing:0.08em;font-weight:700;}
   @media(max-width:768px){.hero-layout{flex-direction:column-reverse;}.hero-illust{width:100%;}}
+
+  /* AI導入のメリット ストーリーブロック */
+  .story-block { display:flex; align-items:center; gap:48px; margin-bottom:80px; }
+  .story-block.reverse { flex-direction:row-reverse; }
+  .story-img { flex:0 0 auto; width:min(380px,45%); }
+  .story-img img { width:100%; height:auto; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
+  .story-text { flex:1; font-size:clamp(16px,2vw,20px); font-weight:700; line-height:1.9; color:var(--black); }
+  .story-text .highlight { color:var(--accent); }
+  @media(max-width:768px){
+    .story-block,.story-block.reverse { flex-direction:column; gap:24px; margin-bottom:56px; }
+    .story-img { width:100%; }
+  }
+
+  /* 選ばれる理由カード */
+  .reasons-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+  .reason-card { background:var(--white); border:2px solid var(--border); padding:32px 28px; transition:border-color 0.2s,transform 0.2s; }
+  .reason-card:hover { border-color:var(--accent); transform:translateY(-4px); }
+  .reason-icon { font-size:28px; margin-bottom:12px; }
+  .reason-title { font-size:17px; font-weight:900; margin-bottom:12px; line-height:1.4; }
+  .reason-body { font-size:14px; color:var(--gray); line-height:1.8; }
+  @media(max-width:700px){ .reasons-grid { grid-template-columns:1fr; } }
+
+  /* ポリシーブロック */
+  .policy-block { max-width:720px; margin:0 auto; border:3px solid var(--accent); padding:48px 56px; position:relative; }
+  .policy-block::before { content:''; position:absolute; top:12px; left:12px; right:-12px; bottom:-12px; border:2px solid var(--border); z-index:-1; }
+  .policy-text { font-size:clamp(17px,2.2vw,22px); font-weight:700; line-height:2.0; margin-bottom:28px; color:var(--black); }
+  .policy-sign { font-size:14px; color:var(--gray); font-weight:700; text-align:right; }
+  @media(max-width:640px){ .policy-block { padding:32px 24px; } .policy-block::before { display:none; } }
+
   .btn-group { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary { background: var(--accent); color: var(--white); padding: 16px 36px; font-size: 15px; font-weight: 700; text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s, transform 0.2s; display: inline-block; }
   .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
@@ -248,8 +277,8 @@
       <div class="hero-text">
         <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋" class="hero-main-logo">
         <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
-        <h1 class="hero-catch">人が辞めた・・・<br><span class="accent">チャンスです。</span></h1>
-        <p class="hero-sub">日々の"面倒"を、AIで解決。<br>採用より先に自動化。</p>
+        <h1 class="hero-catch">人を雇う前に、AI導入。<br>人が辞めた・・・<span class="accent">チャンスです。</span></h1>
+        <p class="hero-sub">ガラケーがスマホに変わったように、<br>"人の手作業"はAIに変わります。</p>
         <p class="hero-quote">「仕事にAIを、家庭に愛を」</p>
         <p class="hero-desc">パート採用の前に、まず<strong>月額5,000円のAI導入</strong>から試してみませんか？</p>
         <div class="btn-group">
@@ -257,6 +286,118 @@
           <a href="#contact" class="btn-secondary">まずは相談する</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI導入のメリット -->
+<section id="ai-benefits" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-label">Why AI?</div>
+    <h2 class="section-title">AI導入のメリット</h2>
+
+    <div class="story-block">
+      <div class="story-img">
+        <img src="images/ai-1.png" alt="AIは怒りません" loading="lazy">
+      </div>
+      <div class="story-text">
+        AIは怒りません。文句も言いません。<br>
+        人間関係のストレスも、<span class="highlight">AIにはありません。</span>
+      </div>
+    </div>
+
+    <div class="story-block reverse">
+      <div class="story-img">
+        <img src="images/ai-2.png" alt="書類の山に追われる毎日" loading="lazy">
+      </div>
+      <div class="story-text">
+        書類の山に追われる毎日を続けますか？<br>
+        1日1時間の手作業なら、10年で約<span class="highlight">3,000時間</span>。<br>
+        その作業、AIが解決します。
+      </div>
+    </div>
+
+    <div class="story-block">
+      <div class="story-img">
+        <img src="images/ai-3.png" alt="AIは朝も夜も働きます" loading="lazy">
+      </div>
+      <div class="story-text">
+        AIは朝も夜も働きます。<br>
+        <span class="highlight">休憩も残業代も不要。</span><br>
+        あなたが寝ている間も、仕事は進んでいます。
+      </div>
+    </div>
+
+    <div class="story-block reverse">
+      <div class="story-img">
+        <img src="images/ai-4.png" alt="人にまつわる悩みが軽くなります" loading="lazy">
+      </div>
+      <div class="story-text">
+        採用、教育、有給休暇、人間関係——。<br>
+        経営者が抱える<span class="highlight">「人にまつわる悩み」</span>が、<br>
+        ぐっと軽くなります。
+      </div>
+    </div>
+
+    <div class="story-block">
+      <div class="story-img">
+        <img src="images/ai-5.png" alt="経営者の判断で会社が変わる時代" loading="lazy">
+      </div>
+      <div class="story-text">
+        重い荷物を背負って坂道を登り続けますか？<br>
+        AIとともに、まっすぐな道を進むのか。<br>
+        <span class="highlight">経営者の判断で会社が変わる時代です。</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="#plans" class="btn-primary">まずは¥5,000のAI導入プランから</a>
+      <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" rel="noopener" class="btn-secondary" style="background:#06C755;border-color:#06C755;color:#fff;">💬 LINEで相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- アサヒ屋が選ばれる理由 -->
+<section id="why-us" style="background:var(--light);">
+  <div class="section-inner">
+    <div class="section-label">Why Asahiya?</div>
+    <h2 class="section-title">アサヒ屋が選ばれる理由</h2>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <div class="reason-icon">🏠</div>
+        <div class="reason-title">佐世保・長崎の"顔が見える"AI屋さん</div>
+        <div class="reason-body">大手ベンダーは電話とメールだけ。アサヒ屋は直接お伺いします。パソコンが苦手でも大丈夫。隣に座って一緒に進めます。</div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">🔧</div>
+        <div class="reason-title">導入して終わり、にしません</div>
+        <div class="reason-body">月¥10,000〜のメンテナンスパックで、導入後の「動かない」「使い方がわからない」にすぐ対応。地元だからこそできるスピード感です。</div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">💰</div>
+        <div class="reason-title">¥5,000から始められる</div>
+        <div class="reason-body">大手の数十万円〜のコンサル料は不要。まず小さく試して、効果を実感してから広げられます。</div>
+      </div>
+      <div class="reason-card">
+        <div class="reason-icon">🔨</div>
+        <div class="reason-title">IT出身ではない、現場たたき上げのAI導入コンサル</div>
+        <div class="reason-body">中小企業の現場を知っているからこそ、現場にあった提案しか行いません。机上の空論ではなく、まずは現場へ。経営者の悩みを客観的に判断します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ポリシーブロック -->
+<section id="policy" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="policy-block">
+      <p class="policy-text">
+        御社のために、現場を改善したい。<br>
+        地元を裏切らない企業であり続けます。<br><br>
+        難しいと判断したら、正直にお話しします。<br>
+        御社のためにならない、形だけの提案は致しません。
+      </p>
+      <p class="policy-sign">AIのアサヒ屋　三宅耕平</p>
     </div>
   </div>
 </section>
@@ -330,7 +471,7 @@
       <div class="subsidy-icon">💡</div>
       <div class="subsidy-text">
         <strong>現場経験があるから、机上のAI導入で終わらせません。</strong>
-        <p>アウトソーシングセンターSV、中小企業管理職、食品関連・HACCP・補助金申請の経験をもとに、現場で使い続けられる形まで伴走します。</p>
+        <p>ITから食品スーパーまで、複数の企業で管理者として現場に並走、HACCP・補助金申請の経験をもとに、現場で使い続けられる形まで伴走します。</p>
       </div>
     </div>
     <p style="margin-top:40px;font-size:20px;font-weight:900;text-align:center;">次はあなたの会社の課題を、一緒に解決しましょう。</p>
@@ -368,7 +509,7 @@
       <div class="plan-card">
         <div class="plan-badge">STEP 2 ／ 継続パートナー</div>
         <div class="plan-name">AIメンテナンスパック</div>
-        <div class="plan-price">¥10,000 <small>/ 月</small></div>
+        <div class="plan-price">¥10,000～ <small>/ 月</small></div>
         <div class="plan-period">3ヶ月契約・自動更新</div>
         <div class="plan-tagline">納品後の小さな困りごとを放置しないための保守プラン。</div>
         <hr class="plan-divider">
@@ -507,7 +648,7 @@
     <div class="faq-list">
       <div class="faq-item">
         <div class="faq-q">どれくらいの費用で利用できますか？</div>
-        <div class="faq-a">AI導入プランは¥5,000/月です。継続契約はAIメンテナンスパック¥10,000/月、AI顧問ライト¥30,000/月、AI顧問スタンダード¥80,000/月、AI顧問プレミアム¥150,000〜/月です。研修は半日¥100,000からご用意しています。</div>
+        <div class="faq-a">AI導入プランは¥5,000/月です。継続契約はAIメンテナンスパック¥10,000より/月、AI顧問ライト¥30,000/月、AI顧問スタンダード¥80,000/月、AI顧問プレミアム¥150,000〜/月です。研修は半日¥100,000からご用意しています。</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">ITに詳しくなくても大丈夫ですか？</div>

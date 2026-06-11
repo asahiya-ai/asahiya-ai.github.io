@@ -89,15 +89,20 @@
   @media(max-width:768px){.hero-layout{flex-direction:column-reverse;}.hero-illust{width:100%;}}
 
   /* AI導入のメリット ストーリーブロック */
-  .story-block { display:flex; align-items:center; gap:48px; margin-bottom:80px; }
+  .story-block { display:flex; align-items:center; gap:56px; margin-bottom:80px; }
   .story-block.reverse { flex-direction:row-reverse; }
-  .story-img { flex:0 0 auto; width:min(380px,45%); }
+  .story-img { flex:0 0 auto; width:min(440px,48%); }
   .story-img img { width:100%; height:auto; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.1); }
   .story-text { flex:1; font-size:clamp(16px,2vw,20px); font-weight:700; line-height:1.9; color:var(--black); }
   .story-text .highlight { color:var(--accent); }
-  @media(max-width:768px){
-    .story-block,.story-block.reverse { flex-direction:column; gap:24px; margin-bottom:56px; }
+  /* ai-5 専用：全幅・中央寄せ */
+  .story-full { flex-direction:column !important; align-items:center; text-align:center; }
+  .story-full .story-img { width:min(640px,88%); }
+  .story-full .story-text { max-width:680px; }
+  @media(max-width:860px){
+    .story-block,.story-block.reverse { flex-direction:column; gap:20px; margin-bottom:52px; }
     .story-img { width:100%; }
+    .story-full .story-img { width:100%; }
   }
 
   /* 選ばれる理由カード */
@@ -277,15 +282,29 @@
       <div class="hero-text">
         <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋" class="hero-main-logo">
         <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
-        <h1 class="hero-catch">人を雇う前に、AI導入。<br>人が辞めた・・・<span class="accent">チャンスです。</span></h1>
+        <h1 class="hero-catch">人からAIへ<br><span class="accent">採用の前に、AI導入。</span></h1>
         <p class="hero-sub">ガラケーがスマホに変わったように、<br>"人の手作業"はAIに変わります。</p>
-        <p class="hero-quote">「仕事にAIを、家庭に愛を」</p>
         <p class="hero-desc">パート採用の前に、まず<strong>月額5,000円のAI導入</strong>から試してみませんか？</p>
         <div class="btn-group">
           <a href="#plans" class="btn-primary">サービスを見る</a>
           <a href="#contact" class="btn-secondary">まずは相談する</a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ポリシーブロック -->
+<section id="policy" style="background:var(--light);padding:60px 40px;">
+  <div class="section-inner">
+    <div class="policy-block">
+      <p class="policy-text">
+        御社のために、現場を改善したい。<br>
+        地元を裏切らない企業であり続けます。<br><br>
+        難しいと判断したら、正直にお話しします。<br>
+        御社のためにならない、形だけの提案は致しません。
+      </p>
+      <p class="policy-sign">AIのアサヒ屋</p>
     </div>
   </div>
 </section>
@@ -339,7 +358,7 @@
       </div>
     </div>
 
-    <div class="story-block">
+    <div class="story-block story-full">
       <div class="story-img">
         <img src="images/ai-5.png" alt="経営者の判断で会社が変わる時代" loading="lazy">
       </div>
@@ -383,21 +402,6 @@
         <div class="reason-title">IT出身ではない、現場たたき上げのAI導入コンサル</div>
         <div class="reason-body">中小企業の現場を知っているからこそ、現場にあった提案しか行いません。机上の空論ではなく、まずは現場へ。経営者の悩みを客観的に判断します。</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ポリシーブロック -->
-<section id="policy" style="background:var(--white);">
-  <div class="section-inner">
-    <div class="policy-block">
-      <p class="policy-text">
-        御社のために、現場を改善したい。<br>
-        地元を裏切らない企業であり続けます。<br><br>
-        難しいと判断したら、正直にお話しします。<br>
-        御社のためにならない、形だけの提案は致しません。
-      </p>
-      <p class="policy-sign">AIのアサヒ屋　三宅耕平</p>
     </div>
   </div>
 </section>

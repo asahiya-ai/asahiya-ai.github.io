@@ -89,6 +89,21 @@
   /* 助成金バッジ */
   .subsidy-badge { display:inline-block; background:var(--accent); color:var(--white); font-size:12px; font-weight:700; letter-spacing:0.1em; padding:6px 18px; margin-bottom:24px; border-radius:2px; }
 
+  /* ヒーロー：助成金の数式バッジ */
+  .hero-formula { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:0 0 40px; }
+  .hero-formula .f-item { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px 20px; border-radius:10px; font-weight:900; line-height:1.25; }
+  .hero-formula .f-item .f-sub { font-size:11px; font-weight:700; letter-spacing:0.04em; opacity:0.85; margin-top:2px; }
+  .hero-formula .f-ai { background:var(--black); color:var(--white); font-size:clamp(16px,2.2vw,20px); }
+  .hero-formula .f-subsidy { background:var(--accent); color:var(--white); font-size:clamp(16px,2.2vw,20px); }
+  .hero-formula .f-subsidy .f-big { font-size:clamp(22px,3vw,30px); }
+  .hero-formula .f-result { background:#fff; color:var(--accent); border:3px solid var(--accent); font-size:clamp(16px,2.2vw,20px); }
+  .hero-formula .f-op { font-size:clamp(22px,3vw,30px); font-weight:900; color:var(--black); }
+  @media(max-width:560px){
+    .hero-formula { gap:8px; }
+    .hero-formula .f-item { padding:10px 14px; flex:1 1 auto; }
+    .hero-formula .f-op { font-size:22px; }
+  }
+
   /* AI導入のメリット ストーリーブロック */
   .story-block { display:flex; align-items:center; gap:56px; margin-bottom:80px; }
   .story-block.reverse { flex-direction:row-reverse; }
@@ -285,6 +300,13 @@
         <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
         <h1 class="hero-catch">人からAIへ<br><span class="accent">採用の前に、AI導入。</span></h1>
         <p class="hero-sub">中小企業専門のAI導入・研修・顧問</p>
+        <div class="hero-formula" aria-label="AI導入 引く 助成金75パーセント イコール お得に業務改善">
+          <span class="f-item f-ai">AI導入</span>
+          <span class="f-op" aria-hidden="true">−</span>
+          <span class="f-item f-subsidy"><span class="f-big">助成金 75%</span><span class="f-sub">最大補助</span></span>
+          <span class="f-op" aria-hidden="true">=</span>
+          <span class="f-item f-result">お得に業務改善</span>
+        </div>
         <!-- <p class="hero-desc">パート採用の前に、まず<strong>月額5,000円のAI導入</strong>から試してみませんか？</p> -->
         <div class="btn-group">
           <a href="#contact" class="btn-primary" style="font-size:17px;padding:20px 48px;">まずは無料相談から</a>

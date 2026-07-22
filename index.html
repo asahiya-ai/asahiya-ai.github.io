@@ -59,8 +59,8 @@
     --black: #111111; --white: #FAFAF8; --accent: #E8401C;
     --accent2: #006B63; --gray: #6B6B6B; --light: #F2F0EB; --border: #DDDBD6;
   }
-  html { scroll-behavior: smooth; background-color: #ffffff; }
-  body { font-family: 'Noto Sans JP', sans-serif; background: #ffffff; color: var(--black); font-size: 16px; line-height: 1.8; }
+  html { scroll-behavior: smooth; background-color: #ffffff; overflow-x: hidden; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #ffffff; color: var(--black); font-size: 16px; line-height: 1.8; overflow-x: hidden; }
 
   header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--black); padding: 0 40px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
   .logo { font-family: 'Oswald', sans-serif; font-size: 22px; color: var(--white); letter-spacing: 0.1em; }
@@ -84,7 +84,36 @@
   .hero-illust{flex:0 0 auto;width:min(400px,42vw);}
   .hero-illust img{width:100%;height:auto;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);}
   .hero-quote{font-family:'Yuji Syuku',serif;font-size:clamp(15px,2vw,20px);color:var(--accent);margin-bottom:20px;letter-spacing:0.08em;font-weight:700;}
-  @media(max-width:768px){.hero-layout{flex-direction:column-reverse;}.hero-illust{width:100%;}}
+  @media(max-width:768px){.hero-layout{flex-direction:column-reverse;align-items:stretch;}.hero-illust{width:100%;}.hero-text{width:100%;}}
+
+  /* ヒーロー背景スライダー */
+  #hero { background: var(--black); }
+  .hero-slides { position:absolute; inset:0; z-index:0; }
+  .hero-slide { position:absolute; inset:0; opacity:0; background-size:cover; background-position:50% 30%; transition:opacity 1s ease-in-out; }
+  .hero-slide.active { opacity:1; }
+  .hero-overlay { position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(105deg, rgba(10,10,10,0.90) 0%, rgba(10,10,10,0.66) 48%, rgba(0,107,99,0.40) 100%); }
+  #hero .hero-inner { position:relative; z-index:2; }
+  #hero .hero-text { position:relative; padding:34px 40px 38px; border-radius:18px;
+    background:linear-gradient(100deg, rgba(6,6,6,0.58) 0%, rgba(6,6,6,0.32) 55%, rgba(6,6,6,0) 100%); }
+  #hero .hero-catch { color:#fff; text-shadow:0 2px 6px rgba(0,0,0,0.6), 0 6px 32px rgba(0,0,0,0.55); }
+  #hero .hero-sub { color:#fff; text-shadow:0 1px 4px rgba(0,0,0,0.65), 0 2px 16px rgba(0,0,0,0.5); }
+  #hero .hero-tag { box-shadow:0 4px 16px rgba(0,0,0,0.35); }
+  @media(max-width:768px){ #hero .hero-text { padding:24px 22px 26px; background:linear-gradient(180deg, rgba(6,6,6,0.48) 0%, rgba(6,6,6,0.30) 100%); } }
+  .hero-arrow { position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:52px; height:52px; border-radius:50%; border:1px solid rgba(255,255,255,0.5);
+    background:rgba(255,255,255,0.15); color:#fff; font-size:26px; line-height:1; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:background 0.2s,border-color 0.2s; }
+  .hero-arrow:hover { background:var(--accent); border-color:var(--accent); }
+  .hero-arrow.prev { left:24px; }
+  .hero-arrow.next { right:24px; }
+  .hero-dots { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); z-index:3; display:flex; gap:12px; }
+  .hero-dot { width:12px; height:12px; padding:0; border-radius:50%; border:2px solid #fff; background:transparent; cursor:pointer; transition:background 0.2s; }
+  .hero-dot.active { background:var(--accent); border-color:var(--accent); }
+  @media(max-width:640px){
+    .hero-arrow { display:none; }
+    .hero-dots { bottom:18px; }
+  }
 
   /* 助成金バッジ */
   .subsidy-badge { display:inline-block; background:var(--accent); color:var(--white); font-size:12px; font-weight:700; letter-spacing:0.1em; padding:6px 18px; margin-bottom:24px; border-radius:2px; }
@@ -99,9 +128,11 @@
   .hero-formula .f-result { background:#fff; color:var(--accent); border:3px solid var(--accent); font-size:clamp(16px,2.2vw,20px); }
   .hero-formula .f-op { font-size:clamp(22px,3vw,30px); font-weight:900; color:var(--black); }
   @media(max-width:560px){
-    .hero-formula { gap:8px; }
-    .hero-formula .f-item { padding:10px 14px; flex:1 1 auto; }
-    .hero-formula .f-op { font-size:22px; }
+    .hero-formula { gap:8px; justify-content:flex-start; }
+    .hero-formula .f-item { padding:9px 12px; flex:0 0 auto; }
+    .hero-formula .f-op { font-size:20px; }
+    .hero-formula .f-ai, .hero-formula .f-subsidy, .hero-formula .f-result { font-size:14px; }
+    .hero-formula .f-subsidy .f-big { font-size:18px; }
   }
 
   /* AI導入のメリット ストーリーブロック */
@@ -129,6 +160,23 @@
   .reason-title { font-size:17px; font-weight:900; margin-bottom:12px; line-height:1.4; }
   .reason-body { font-size:14px; color:var(--gray); line-height:1.8; }
   @media(max-width:700px){ .reasons-grid { grid-template-columns:1fr; } }
+
+  /* 選ばれる理由：リード画像 */
+  .whyus-lead { display:flex; align-items:center; gap:40px; margin-bottom:48px; }
+  .whyus-lead-img { flex:0 0 auto; width:min(320px,40%); }
+  .whyus-lead-img img { width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+  .whyus-lead-text { flex:1; font-size:clamp(17px,2.2vw,22px); font-weight:700; line-height:1.9; color:var(--black); }
+  .whyus-lead-text .accent { color:var(--accent); }
+  @media(max-width:768px){ .whyus-lead { flex-direction:column; gap:20px; } .whyus-lead-img { width:100%; max-width:360px; } }
+
+  /* アサヒ屋について */
+  #about .story-img { width:min(340px,40%); }
+  #about .story-img img { border-radius:12px; box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+  @media(max-width:860px){ #about .story-img { width:100%; max-width:360px; margin:0 auto; } }
+
+  /* 導入事例：セミナー画像 */
+  .results-hero-img { margin-bottom:40px; border-radius:12px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.12); }
+  .results-hero-img img { width:100%; height:auto; display:block; }
 
   /* ポリシーブロック */
   .policy-block { max-width:720px; margin:0 auto; border:3px solid var(--accent); padding:48px 56px; position:relative; }
@@ -235,17 +283,19 @@
     right: 30px;
     background-color: #06C755;
     color: #fff;
-    padding: 14px 20px;
+    padding: 18px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    font-size: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
     z-index: 9999;
     display: flex !important;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
+  .line-float-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(6,199,85,0.5); }
   @media (max-width: 640px) {
     .line-float-btn {
       bottom: 16px;
@@ -254,6 +304,30 @@
       padding: 12px 16px;
     }
   }
+
+  /* 補助金フローティングバッジ（右上・常時表示） */
+  .subsidy-float {
+    position: fixed; top: 74px; right: 20px; z-index: 9998;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    gap: 2px; padding: 12px 20px; border-radius: 14px; text-decoration: none; line-height: 1.1;
+    background: linear-gradient(135deg, #F0531F 0%, #E8401C 100%); color: #fff;
+    border: 2px solid rgba(255,255,255,0.85); box-shadow: 0 8px 24px rgba(232,64,28,0.45);
+    transition: transform 0.2s, box-shadow 0.2s; animation: sfPulse 2.4s ease-in-out infinite;
+  }
+  .subsidy-float:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 12px 30px rgba(232,64,28,0.6); }
+  .subsidy-float .sf-label { font-size: 12px; font-weight: 700; letter-spacing: 0.02em; }
+  .subsidy-float .sf-big { font-size: 26px; font-weight: 900; display: flex; align-items: baseline; gap: 3px; }
+  .subsidy-float .sf-max { font-size: 13px; font-weight: 800; background: #fff; color: var(--accent); border-radius: 4px; padding: 1px 5px; }
+  .subsidy-float .sf-off { font-size: 16px; font-weight: 900; margin-left: 1px; }
+  @keyframes sfPulse { 0%,100%{ box-shadow: 0 8px 24px rgba(232,64,28,0.45); } 50%{ box-shadow: 0 8px 30px rgba(232,64,28,0.72); } }
+  @media (max-width: 640px) {
+    .subsidy-float { top: 68px; right: 10px; padding: 8px 12px; border-radius: 11px; }
+    .subsidy-float .sf-label { font-size: 10px; }
+    .subsidy-float .sf-big { font-size: 19px; }
+    .subsidy-float .sf-max { font-size: 10px; padding: 1px 4px; }
+    .subsidy-float .sf-off { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .subsidy-float { animation: none; } }
 
   @media (max-width: 640px) {
     header { padding: 0 20px; }
@@ -293,10 +367,17 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide active" style="background-image:url('images/hero/hero-1.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('images/hero/hero-3.jpg')"></div>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <button type="button" class="hero-arrow prev" aria-label="前の画像へ">&#8249;</button>
+  <button type="button" class="hero-arrow next" aria-label="次の画像へ">&#8250;</button>
   <div class="hero-inner">
     <div class="hero-layout">
       <div class="hero-text">
-        <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋" class="hero-main-logo">
         <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
         <h1 class="hero-catch">人からAIへ<br><span class="accent">採用の前に、AI導入。</span></h1>
         <p class="hero-sub">中小企業専門のAI導入・研修・顧問</p>
@@ -313,6 +394,11 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="hero-dots">
+    <button type="button" class="hero-dot active" aria-label="1枚目を表示"></button>
+    <button type="button" class="hero-dot" aria-label="2枚目を表示"></button>
+    <button type="button" class="hero-dot" aria-label="3枚目を表示"></button>
   </div>
 </section>
 
@@ -460,11 +546,32 @@
   </div>
 </section>
 
+<!-- アサヒ屋について -->
+<section id="about" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">「AIって、うちには関係ない」<br>そう思っていませんか？</h2>
+    <div class="story-block">
+      <div class="story-img"><img src="images/about/about-profile.jpg" alt="AI活用のポイントを指し示すイメージ" loading="lazy"></div>
+      <div class="story-text">
+        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の小さな会社・お店</span>のためのAI導入をお手伝いしています。<br><br>
+        難しい専門用語は使いません。「この作業、もっとラクにできませんか？」——その一言から、御社にちょうどいいAI活用を一緒に見つけます。まずは気軽にご相談ください。
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- アサヒ屋が選ばれる理由 -->
-<section id="why-us" style="display:none;background:var(--light);">
+<section id="why-us" style="background:var(--light);">
   <div class="section-inner">
     <div class="section-label">Why Asahiya?</div>
     <h2 class="section-title">アサヒ屋が選ばれる理由</h2>
+    <div class="whyus-lead">
+      <div class="whyus-lead-img"><img src="images/reasons/reasons-consulting.jpg" alt="カフェのような雰囲気で相談に応じるアサヒ屋のミーティング風景" loading="lazy"></div>
+      <div class="whyus-lead-text">
+        大手にはできない、<span class="accent">顔が見える距離感</span>。<br>まずはお茶でも飲みながら、御社の課題をじっくり伺うことから始めます。
+      </div>
+    </div>
     <div class="reasons-grid">
       <div class="reason-card">
         <div class="reason-icon">🏠</div>
@@ -524,11 +631,12 @@
 </section>
 
 <!-- RESULTS -->
-<section id="results" style="display:none;">
+<section id="results">
   <div class="section-inner">
     <div class="section-label">Results</div>
     <h2 class="section-title">業種別の導入事例</h2>
     <p style="font-size:15px;color:var(--gray);margin-bottom:40px;line-height:1.8;">現場の悩みを聞き、必要なところから小さくAI化・自動化しています。匿名事例として掲載しています。</p>
+    <div class="results-hero-img"><img src="images/results/results-seminar.jpg" alt="大人数で行われたAI活用セミナーの様子" loading="lazy"></div>
     <div class="results-grid">
       <div class="result-item"><div class="result-num">01</div><div class="result-text"><strong>スポーツジムさま</strong><br>会員管理アプリ・チケット管理・HP/Instagram集客</div></div>
       <div class="result-item"><div class="result-num">02</div><div class="result-text"><strong>食品工場さま</strong><br>HACCP記録AI化・レシート管理自動化・販売予測</div></div>
@@ -797,7 +905,36 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  /* ヒーロー背景スライダー（5秒自動フェード・矢印/ドット手動送り） */
+  (function () {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+    const slides = hero.querySelectorAll('.hero-slide');
+    const dots = hero.querySelectorAll('.hero-dot');
+    if (slides.length < 2) return;
+    let idx = 0, timer = null;
+    const show = i => {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, n) => s.classList.toggle('active', n === idx));
+      dots.forEach((d, n) => d.classList.toggle('active', n === idx));
+    };
+    const start = () => { stop(); timer = setInterval(() => show(idx + 1), 5000); };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const next = hero.querySelector('.hero-arrow.next');
+    const prev = hero.querySelector('.hero-arrow.prev');
+    if (next) next.addEventListener('click', () => { show(idx + 1); start(); });
+    if (prev) prev.addEventListener('click', () => { show(idx - 1); start(); });
+    dots.forEach((d, n) => d.addEventListener('click', () => { show(n); start(); }));
+    start();
+  })();
 </script>
+
+<!-- 補助金フローティングバッジ（右上・常時表示） -->
+<a href="#contact" class="subsidy-float" aria-label="補助金・助成金で最大75パーセントOFF。無料相談はこちら">
+  <span class="sf-label">補助金・助成金で</span>
+  <span class="sf-big"><span class="sf-max">最大</span>75%<span class="sf-off">OFF</span></span>
+</a>
 
 <!-- LINE浮きボタン -->
 <a href="https://line.me/R/ti/p/@340uxupd"

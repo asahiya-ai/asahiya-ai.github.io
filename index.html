@@ -149,16 +149,20 @@
     .story-full .story-img { width:100%; }
   }
 
-  /* AI導入のメリット：テキストのみ（画像なし・中央寄せ） */
-  #ai-benefits .story-block { display:block; max-width:780px; margin:0 auto; text-align:center; padding:44px 0 0; }
-  #ai-benefits .story-block:first-of-type { padding-top:8px; }
-  #ai-benefits .story-block::before { content:''; display:block; width:44px; height:3px; background:var(--accent); border-radius:2px; opacity:0.7; margin:0 auto 30px; }
-  #ai-benefits .story-block:first-of-type::before { display:none; }
-  #ai-benefits .story-text { font-size:clamp(17px,2.4vw,23px); line-height:1.95; }
-  @media(max-width:860px){
-    #ai-benefits .story-block { padding-top:32px; margin-bottom:0; }
-    #ai-benefits .story-block::before { margin-bottom:22px; }
-    #ai-benefits .story-text { font-size:clamp(16px,4.4vw,19px); line-height:1.9; }
+  /* 統合セクション：助成金AI研修 ＋ AI導入のメリット（明るい背景） */
+  #subsidy-training .st-lead { color:var(--black); font-size:17px; font-weight:700; line-height:1.9; margin-bottom:8px; }
+  #subsidy-training .st-lead .accent { color:var(--accent); }
+  #subsidy-training .st-note { color:#9a978f; font-size:12px; line-height:1.8; margin-bottom:44px; }
+  .merit-card { max-width:720px; margin:0 auto 40px; padding:34px 38px; background:#fff; border-radius:16px;
+    box-shadow:0 6px 24px rgba(0,0,0,0.06); border-top:4px solid var(--accent); text-align:center; }
+  .merit-card .merit-label { font-size:11px; font-weight:800; letter-spacing:0.16em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; }
+  .merit-card h3 { font-size:clamp(21px,2.8vw,28px); font-weight:900; color:var(--black); line-height:1.4; margin-bottom:22px; }
+  .merit-card p { font-size:clamp(16px,2vw,19px); font-weight:700; line-height:1.85; color:var(--black); margin:0; }
+  .merit-card p + p { margin-top:12px; }
+  .merit-card .highlight { color:var(--accent); }
+  @media(max-width:640px){
+    .merit-card { padding:26px 22px; margin-bottom:32px; }
+    #subsidy-training .st-note { margin-bottom:34px; }
   }
 
   /* 選ばれる理由カード */
@@ -411,72 +415,31 @@
   </div>
 </section>
 
-<!-- AI研修×助成金 -->
-<section id="subsidy-training" style="background:var(--black);">
+<!-- 助成金AI研修 ＋ AI導入のメリット（統合・明るい背景） -->
+<section id="subsidy-training" style="background:var(--light);">
   <div class="section-inner" style="text-align:center;">
     <div class="subsidy-badge">助成金活用でAI研修</div>
-    <h2 style="color:var(--white);font-size:clamp(24px,3.5vw,38px);font-weight:900;line-height:1.5;margin-bottom:24px;">
+    <h2 style="color:var(--black);font-size:clamp(24px,3.5vw,38px);font-weight:900;line-height:1.5;margin-bottom:24px;">
       経営者・後継者・エース社員に、<br><span style="color:var(--accent);">いまAI研修を。</span>
     </h2>
-    <p style="color:rgba(255,255,255,0.85);font-size:17px;font-weight:700;line-height:1.9;margin-bottom:8px;">
-      助成金の活用で、<span style="color:var(--accent);">最大75%補助</span>。<br>
+    <p class="st-lead">
+      助成金の活用で、<span class="accent">最大75%補助</span>。<br>
       会社の負担を抑えながら、現場のAI活用力を底上げできます。
     </p>
-    <p style="color:rgba(255,255,255,0.4);font-size:12px;line-height:1.8;margin-bottom:36px;">
+    <p class="st-note">
       （例）研修費30万円 → 助成金活用で実質6.5万円程度に　※対象可否・補助率は制度・申請内容により異なります
     </p>
+
+    <!-- AI導入のメリット（要約） -->
+    <div class="merit-card">
+      <div class="merit-label">Why AI?</div>
+      <h3>AI導入のメリット</h3>
+      <p>書類仕事から解放され、<span class="highlight">AIが時間を生み出します。</span></p>
+      <p>朝も夜も休まず働き、あなたの会社を支えます。</p>
+      <p>人にまつわる悩みも、<span class="highlight">ぐっと軽く。</span></p>
+    </div>
+
     <a href="#contact" class="btn-primary">助成金活用について相談する</a>
-  </div>
-</section>
-
-<!-- AI導入のメリット -->
-<section id="ai-benefits" style="background:var(--white);">
-  <div class="section-inner">
-    <div class="section-label">Why AI?</div>
-    <h2 class="section-title">AI導入のメリット</h2>
-
-    <div class="story-block">
-      <div class="story-text">
-        AIは怒りません。文句も言いません。<br>
-        人間関係のストレスも、<span class="highlight">AIにはありません。</span>
-      </div>
-    </div>
-
-    <div class="story-block">
-      <div class="story-text">
-        書類の山に追われる毎日を続けますか？<br>
-        1日1時間の手作業なら、10年で約<span class="highlight">3,000時間</span>。<br>
-        その作業、AIが解決します。
-      </div>
-    </div>
-
-    <div class="story-block">
-      <div class="story-text">
-        AIは朝も夜も働きます。<br>
-        <span class="highlight">休憩も残業代も不要。</span><br>
-        あなたが寝ている間も、仕事は進んでいます。
-      </div>
-    </div>
-
-    <div class="story-block">
-      <div class="story-text">
-        採用、教育、有給休暇、人間関係——。<br>
-        経営者が抱える<span class="highlight">「人にまつわる悩み」</span>が、<br>
-        ぐっと軽くなります。
-      </div>
-    </div>
-
-    <div class="story-block">
-      <div class="story-text">
-        重い荷物を背負って坂道を登り続けますか？<br>
-        AIとともに、まっすぐな道を進むのか。<br>
-        <span class="highlight">経営者の判断で会社が変わる時代です。</span>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:16px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a href="#contact" class="btn-primary">まずは無料相談から</a>
-    </div>
   </div>
 </section>
 

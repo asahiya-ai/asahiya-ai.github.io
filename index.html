@@ -77,6 +77,7 @@
   /* 左カラム：テキスト（白背景） */
   .hero-text { flex:0 0 52%; max-width:52%; box-sizing:border-box; background:#ffffff;
     display:flex; flex-direction:column; justify-content:center; padding:110px 5% 72px; position:relative; z-index:2; }
+  .hero-logo { display:block; width:240px; height:auto; margin-bottom:26px; align-self:flex-start; }
   .hero-tag { display:inline-block; align-self:flex-start; background:var(--accent); color:var(--white);
     font-size:12px; font-weight:700; letter-spacing:0.06em; padding:5px 14px; margin-bottom:26px; border-radius:2px; line-height:1.55; }
   .hero-catch { font-family:'Noto Sans JP', sans-serif; font-size:clamp(32px, 3.8vw, 56px); font-weight:900;
@@ -104,6 +105,7 @@
   @media(max-width:900px){
     .hero-split { flex-direction:column; min-height:0; }
     .hero-text { flex:none; width:100%; max-width:100%; padding:90px 24px 30px; }
+    .hero-logo { width:190px; margin-bottom:20px; }
     .hero-media { flex:none; width:100%; max-width:100%; aspect-ratio:16 / 10; min-height:150px; }
     .hero-arrow { width:40px; height:40px; font-size:20px; }
   }
@@ -152,6 +154,9 @@
   /* 統合セクション：助成金AI研修 ＋ AI導入のメリット（明るい背景） */
   #subsidy-training .st-lead { color:var(--black); font-size:17px; font-weight:700; line-height:1.9; margin-bottom:8px; }
   #subsidy-training .st-lead .accent { color:var(--accent); }
+  #subsidy-training .st-emphasis { display:inline-block; background:var(--accent); color:#fff;
+    font-size:clamp(19px,2.6vw,27px); font-weight:900; letter-spacing:0.02em; padding:3px 16px; border-radius:8px;
+    line-height:1.35; box-shadow:0 4px 14px rgba(232,64,28,0.30); vertical-align:middle; margin:2px 2px; }
   #subsidy-training .st-note { color:#9a978f; font-size:12px; line-height:1.8; margin-bottom:44px; }
   .merit-card { max-width:720px; margin:0 auto 40px; padding:34px 38px; background:#fff; border-radius:16px;
     box-shadow:0 6px 24px rgba(0,0,0,0.06); border-top:4px solid var(--accent); text-align:center; }
@@ -383,6 +388,7 @@
   <div class="hero-split">
     <!-- 左：テキスト（白背景） -->
     <div class="hero-text">
+      <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋 ロゴ" class="hero-logo">
       <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
       <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
       <p class="hero-sub">中小企業専門のAI導入・研修・顧問</p>
@@ -415,6 +421,21 @@
   </div>
 </section>
 
+<!-- アサヒ屋について（ヒーロー直下） -->
+<section id="about" style="background:var(--white);">
+  <div class="section-inner">
+    <div class="section-label">About Us</div>
+    <h2 class="section-title">「AIって、うちには関係ない」<br>そう思っていませんか？</h2>
+    <div class="story-block">
+      <div class="story-img"><img src="images/about/about-profile.jpg" alt="AI活用のポイントを指し示すイメージ" loading="lazy"></div>
+      <div class="story-text">
+        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の小さな会社・お店</span>のためのAI導入をお手伝いしています。<br><br>
+        難しい専門用語は使いません。「この作業、もっとラクにできませんか？」——その一言から、御社にちょうどいいAI活用を一緒に見つけます。まずは気軽にご相談ください。
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 助成金AI研修 ＋ AI導入のメリット（統合・明るい背景） -->
 <section id="subsidy-training" style="background:var(--light);">
   <div class="section-inner" style="text-align:center;">
@@ -423,7 +444,7 @@
       経営者・後継者・エース社員に、<br><span style="color:var(--accent);">いまAI研修を。</span>
     </h2>
     <p class="st-lead">
-      助成金の活用で、<span class="accent">最大75%補助</span>。<br>
+      助成金の活用で、<span class="st-emphasis">最大75%補助</span><br>
       会社の負担を抑えながら、現場のAI活用力を底上げできます。
     </p>
     <p class="st-note">
@@ -499,21 +520,6 @@
         御社のためにならない、形だけの提案は致しません。
       </p>
       <p class="policy-sign">AIのアサヒ屋</p>
-    </div>
-  </div>
-</section>
-
-<!-- アサヒ屋について -->
-<section id="about" style="background:var(--white);">
-  <div class="section-inner">
-    <div class="section-label">About Us</div>
-    <h2 class="section-title">「AIって、うちには関係ない」<br>そう思っていませんか？</h2>
-    <div class="story-block">
-      <div class="story-img"><img src="images/about/about-profile.jpg" alt="AI活用のポイントを指し示すイメージ" loading="lazy"></div>
-      <div class="story-text">
-        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の小さな会社・お店</span>のためのAI導入をお手伝いしています。<br><br>
-        難しい専門用語は使いません。「この作業、もっとラクにできませんか？」——その一言から、御社にちょうどいいAI活用を一緒に見つけます。まずは気軽にご相談ください。
-      </div>
     </div>
   </div>
 </section>

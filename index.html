@@ -76,14 +76,16 @@
 
   /* 左カラム：テキスト（白背景） */
   .hero-text { flex:0 0 52%; max-width:52%; box-sizing:border-box; background:#ffffff;
-    display:flex; flex-direction:column; justify-content:center; padding:110px 5% 72px; position:relative; z-index:2; }
-  .hero-logo { display:block; width:240px; height:auto; margin-bottom:26px; align-self:flex-start; }
-  .hero-tag { display:inline-block; align-self:flex-start; background:var(--accent); color:var(--white);
-    font-size:12px; font-weight:700; letter-spacing:0.06em; padding:5px 14px; margin-bottom:26px; border-radius:2px; line-height:1.55; }
-  .hero-catch { font-family:'Noto Sans JP', sans-serif; font-size:clamp(32px, 3.8vw, 56px); font-weight:900;
-    color:var(--black); line-height:1.18; margin-bottom:18px; }
+    display:flex; flex-direction:column; justify-content:center; padding:110px 32px 72px; position:relative; z-index:2; }
+  /* 左カラム内容を中央寄りに配置（左端ぴったりを避け、適度な左右余白） */
+  .hero-text-inner { width:100%; max-width:640px; margin:0 auto; }
+  .hero-logo { display:block; width:260px; height:auto; margin-bottom:28px; }
+  .hero-tag { display:inline-block; background:var(--accent); color:var(--white);
+    font-size:13px; font-weight:700; letter-spacing:0.06em; padding:6px 16px; margin-bottom:28px; border-radius:2px; line-height:1.55; }
+  .hero-catch { font-family:'Noto Sans JP', sans-serif; font-size:clamp(38px, 4.2vw, 60px); font-weight:900;
+    color:var(--black); line-height:1.16; margin-bottom:20px; }
   .hero-catch .accent { color:var(--accent); }
-  .hero-sub { font-size:clamp(15px, 1.4vw, 19px); font-weight:700; color:var(--black); margin-bottom:26px; line-height:1.6; }
+  .hero-sub { font-size:clamp(16px, 1.6vw, 21px); font-weight:700; color:var(--black); margin-bottom:30px; line-height:1.6; }
 
   /* 右カラム：スライドショー（オーバーレイなし・写真本来の明るさ） */
   .hero-media { flex:0 0 48%; max-width:48%; position:relative; overflow:hidden; background:#000; }
@@ -105,11 +107,15 @@
   @media(max-width:900px){
     .hero-split { flex-direction:column; min-height:0; }
     .hero-text { flex:none; width:100%; max-width:100%; padding:90px 24px 30px; }
-    .hero-logo { width:190px; margin-bottom:20px; }
+    .hero-text-inner { max-width:none; }
+    .hero-logo { width:200px; margin-bottom:20px; }
     .hero-media { flex:none; width:100%; max-width:100%; aspect-ratio:16 / 10; min-height:150px; }
     .hero-arrow { width:40px; height:40px; font-size:20px; }
   }
   @media(max-width:560px){
+    .hero-logo { width:180px; margin-bottom:18px; }
+    .hero-catch { font-size:clamp(29px, 7.4vw, 42px); margin-bottom:16px; }
+    .hero-sub { font-size:16px; margin-bottom:24px; }
     .hero-media { aspect-ratio:3 / 2; min-height:130px; }
     .hero-arrow { display:none; }
     .hero-dots { bottom:14px; }
@@ -119,14 +125,14 @@
   .subsidy-badge { display:inline-block; background:var(--accent); color:var(--white); font-size:12px; font-weight:700; letter-spacing:0.1em; padding:6px 18px; margin-bottom:24px; border-radius:2px; }
 
   /* ヒーロー：助成金の数式バッジ */
-  .hero-formula { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:0 0 40px; }
-  .hero-formula .f-item { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:12px 20px; border-radius:10px; font-weight:900; line-height:1.25; }
-  .hero-formula .f-item .f-sub { font-size:11px; font-weight:700; letter-spacing:0.04em; opacity:0.85; margin-top:2px; }
-  .hero-formula .f-ai { background:var(--black); color:var(--white); font-size:clamp(16px,2.2vw,20px); }
-  .hero-formula .f-subsidy { background:var(--accent); color:var(--white); font-size:clamp(16px,2.2vw,20px); }
-  .hero-formula .f-subsidy .f-big { font-size:clamp(22px,3vw,30px); }
-  .hero-formula .f-result { background:#fff; color:var(--accent); border:3px solid var(--accent); font-size:clamp(16px,2.2vw,20px); }
-  .hero-formula .f-op { font-size:clamp(22px,3vw,30px); font-weight:900; color:var(--black); }
+  .hero-formula { display:flex; align-items:center; flex-wrap:wrap; gap:12px; margin:0 0 44px; }
+  .hero-formula .f-item { display:inline-flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:13px 22px; border-radius:11px; font-weight:900; line-height:1.25; }
+  .hero-formula .f-item .f-sub { font-size:12px; font-weight:700; letter-spacing:0.04em; opacity:0.85; margin-top:2px; }
+  .hero-formula .f-ai { background:var(--black); color:var(--white); font-size:clamp(18px,2.5vw,23px); }
+  .hero-formula .f-subsidy { background:var(--accent); color:var(--white); font-size:clamp(18px,2.5vw,23px); }
+  .hero-formula .f-subsidy .f-big { font-size:clamp(25px,3.4vw,35px); }
+  .hero-formula .f-result { background:#fff; color:var(--accent); border:3px solid var(--accent); font-size:clamp(18px,2.5vw,23px); }
+  .hero-formula .f-op { font-size:clamp(24px,3.3vw,34px); font-weight:900; color:var(--black); }
   @media(max-width:560px){
     .hero-formula { gap:8px; justify-content:flex-start; }
     .hero-formula .f-item { padding:9px 12px; flex:0 0 auto; }
@@ -388,19 +394,21 @@
   <div class="hero-split">
     <!-- 左：テキスト（白背景） -->
     <div class="hero-text">
-      <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋 ロゴ" class="hero-logo">
-      <div class="hero-tag">佐世保発！九州小規模事業者・個人事業主専門 AI業務自動化サービス</div>
-      <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
-      <p class="hero-sub">中小企業専門のAI導入・研修・顧問</p>
-      <div class="hero-formula" aria-label="AI導入 引く 助成金75パーセント イコール お得に業務改善">
-        <span class="f-item f-ai">AI導入</span>
-        <span class="f-op" aria-hidden="true">−</span>
-        <span class="f-item f-subsidy"><span class="f-big">助成金 75%</span><span class="f-sub">最大補助</span></span>
-        <span class="f-op" aria-hidden="true">=</span>
-        <span class="f-item f-result">お得に業務改善</span>
-      </div>
-      <div class="btn-group">
-        <a href="#contact" class="btn-primary" style="font-size:17px;padding:20px 48px;">まずは無料相談から</a>
+      <div class="hero-text-inner">
+        <img src="images/AIのアサヒ屋のロゴ.png" alt="AIのアサヒ屋 ロゴ" class="hero-logo">
+        <div class="hero-tag">佐世保発！九州中小規模事業者・個人事業主専門 AI業務自動化サービス</div>
+        <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
+        <p class="hero-sub">中小企業専門のAI導入・研修・顧問</p>
+        <div class="hero-formula" aria-label="AI導入 引く 助成金75パーセント イコール お得に業務改善">
+          <span class="f-item f-ai">AI導入</span>
+          <span class="f-op" aria-hidden="true">−</span>
+          <span class="f-item f-subsidy"><span class="f-big">助成金 75%</span><span class="f-sub">最大補助</span></span>
+          <span class="f-op" aria-hidden="true">=</span>
+          <span class="f-item f-result">お得に業務改善</span>
+        </div>
+        <div class="btn-group">
+          <a href="#contact" class="btn-primary" style="font-size:18px;padding:22px 54px;">まずは無料相談から</a>
+        </div>
       </div>
     </div>
     <!-- 右：スライドショー（テキストなし・写真本来の明るさ） -->
@@ -429,7 +437,7 @@
     <div class="story-block">
       <div class="story-img"><img src="images/about/about-profile.jpg" alt="AI活用のポイントを指し示すイメージ" loading="lazy"></div>
       <div class="story-text">
-        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の小さな会社・お店</span>のためのAI導入をお手伝いしています。<br><br>
+        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の中小企業・個人向け</span>AI導入をお手伝いしています。<br><br>
         難しい専門用語は使いません。「この作業、もっとラクにできませんか？」——その一言から、御社にちょうどいいAI活用を一緒に見つけます。まずは気軽にご相談ください。
       </div>
     </div>
@@ -869,7 +877,7 @@
     });
   });
 
-  /* ヒーロー背景スライダー（5秒自動フェード・矢印/ドット手動送り） */
+  /* ヒーロー背景スライダー（2.5秒自動フェード・矢印/ドット手動送り） */
   (function () {
     const hero = document.getElementById('hero');
     if (!hero) return;
@@ -882,7 +890,7 @@
       slides.forEach((s, n) => s.classList.toggle('active', n === idx));
       dots.forEach((d, n) => d.classList.toggle('active', n === idx));
     };
-    const start = () => { stop(); timer = setInterval(() => show(idx + 1), 5000); };
+    const start = () => { stop(); timer = setInterval(() => show(idx + 1), 2500); };
     const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
     const next = hero.querySelector('.hero-arrow.next');
     const prev = hero.querySelector('.hero-arrow.prev');

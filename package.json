@@ -1,0 +1,9 @@
+{
+  "name": "asahiya-hp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AIのアサヒ屋 HP（静的サイト）。npm start はローカル確認専用で、本番のGitHub Pagesには影響しない。",
+  "scripts": {
+    "start": "npx --yes serve . -l 3000"
+  }
+}

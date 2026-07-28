@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets.json
+node_modules/
+
+# 動画・音声の原本（1本40MB超）。gitに入れると履歴が永久に膨らむため除外。
+# ローカルには残っている。コピーは assets/raw/ にもある。
+*.mp4
+*.mov
+*.mp3
+*.wav

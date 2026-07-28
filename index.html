@@ -121,6 +121,19 @@
     .hero-dots { bottom:14px; }
   }
 
+  /* ===== ヒーロー直下：CM動画（YouTube Shorts・縦型9:16） ===== */
+  /* 下側の余白は次セクション(#about)の padding-top に任せて二重にしない */
+  #hero-video { background: var(--white); padding: 80px 40px 0; }
+  .hero-video-inner { width: 100%; max-width: 400px; margin: 0 auto; }
+  .hero-video-inner iframe {
+    display: block; width: 100%; aspect-ratio: 9 / 16; height: auto;
+    border: 0; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); background: #000;
+  }
+  @media(max-width:640px){
+    #hero-video { padding: 56px 20px 0; }
+    .hero-video-inner iframe { border-radius: 8px; }
+  }
+
   /* 助成金バッジ */
   .subsidy-badge { display:inline-block; background:var(--accent); color:var(--white); font-size:12px; font-weight:700; letter-spacing:0.1em; padding:6px 18px; margin-bottom:24px; border-radius:2px; }
 
@@ -429,7 +442,20 @@
   </div>
 </section>
 
-<!-- アサヒ屋について（ヒーロー直下） -->
+<!-- CM動画（ヒーロー直下） -->
+<section id="hero-video">
+  <div class="hero-video-inner">
+    <iframe
+      src="https://www.youtube.com/embed/rLwdoyahKGA"
+      title="AIのアサヒ屋 CM動画"
+      loading="lazy"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- アサヒ屋について -->
 <section id="about" style="background:var(--white);">
   <div class="section-inner">
     <div class="section-label">About Us</div>

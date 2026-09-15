@@ -136,8 +136,11 @@
   /* ===== About ===== */
   .story { display: flex; align-items: center; gap: 32px; }
   .story-img { flex: 0 0 300px; }
-  .story-img img { border-radius: 6px; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 20%; }
+  .story-img img { border-radius: 6px; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 0; }
   .story-text { font-size: 15.5px; }
+  .story-text p { margin: 0 0 18px; }
+  .story-text p:last-child { margin-bottom: 0; }
+  .sp-br { display: none; }
   .highlight { background: linear-gradient(transparent 62%, rgba(232,64,28,0.25) 62%); font-weight: 700; }
   .source { font-size: 12px; color: var(--gray); font-weight: 400; }
   .mission { color: var(--sun); font-weight: 700; }
@@ -296,11 +299,15 @@
     .hero-media { flex: none; max-width: 100%; aspect-ratio: 3 / 2; }
     .story { flex-direction: column; }
     .story-img { flex: none; width: 100%; max-width: 340px; }
+    .story-img img { aspect-ratio: 4 / 3; object-position: 50% 15%; }
     .whyus-lead { flex-direction: column; }
     .whyus-lead-img { flex: none; width: 100%; max-width: 340px; }
   }
   @media (max-width: 560px) {
     section { padding: 44px 18px; }
+    .story-text { font-size: 15px; }
+    .pc-br, .sp-hide { display: none; }
+    .sp-br { display: inline; }
     .title { margin-bottom: 14px; }
     .lead { margin-bottom: 22px; }
     .hero-text { padding: 28px 20px 24px; }
@@ -429,14 +436,27 @@
     <h2 class="title">「AIって、うちには関係ない」<br>そう思っていませんか？</h2>
     <div class="story">
       <div class="story-img"><img src="images/about/about-profile.jpg" alt="AI活用のポイントを指し示すイメージ" loading="lazy" width="900" height="1274"></div>
-      <p class="story-text">
-        <span class="highlight">佐世保市は、転出超過が全国ワースト1位。</span><small class="source">（総務省 2025年 住民基本台帳人口移動報告）</small><br>
-        若い人が仕事を求めて県外へ出ていき、残った会社は人手不足で「採用したくても人がいない」。長崎の中小企業が今、直面している現実です。<br><br>
-        だからこそ、人を増やせないなら、一人ひとりの仕事をAIでラクにする。<br>
-        <strong class="mission">「西から太陽が昇るように、AIで長崎に新しい朝を届ける」</strong>——これがアサヒ屋の理念です。<br><br>
-        アサヒ屋は、佐世保を拠点に<span class="highlight">長崎・佐賀の中小企業・個人向け</span>にAI導入をお手伝いしています。<br><br>
-        難しい専門用語は使いません。「この作業、もっとラクにできませんか？」——その一言から、御社にちょうどいいAI活用を一緒に見つけます。まずは気軽にご相談ください。
-      </p>
+      <div class="story-text">
+        <p>
+          <span class="highlight">佐世保市は、転出超過が全国ワースト1位。</span><br>
+          <small class="source">（総務省 2025年 住民基本台帳人口移動報告）</small><br>
+          若い人は県外へ。残った会社は<br>「採用したくても、人がいない」。<br>
+          それが、長崎の中小企業の現実です。
+        </p>
+        <p>
+          人を増やせないなら、<br>一人ひとりの仕事をAIでラクにする。<br>
+          <strong class="mission">「西から太陽が昇るように、<br class="sp-br">AIで長崎に新しい朝を届ける」</strong><br>
+          これが、アサヒ屋の理念です。
+        </p>
+        <p class="sp-hide">
+          アサヒ屋は佐世保を拠点に、<span class="highlight">長崎・佐賀の中小企業・個人向け</span>に<br class="pc-br">AI導入をお手伝いしています。
+        </p>
+        <p>
+          <span class="sp-hide">難しい専門用語は使いません。<br></span>
+          「この作業、もっとラクにできませんか？」<br>
+          その一言から、一緒に考えます。<br class="sp-br">お気軽にご相談ください。
+        </p>
+      </div>
     </div>
   </div>
 </section>

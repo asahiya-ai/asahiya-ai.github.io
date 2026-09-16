@@ -207,6 +207,21 @@
     padding: 26px 22px; font-size: 16px; line-height: 2; }
   .merit h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; }
 
+  /* ===== どんな改善ができるの？ ===== */
+  .improve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .improve { background: #fff; border: 2px solid var(--border); border-radius: 6px; padding: 24px 20px; }
+  .improve .icon { font-size: 32px; margin-bottom: 8px; }
+  .improve h3 { font-size: 18px; font-weight: 900; margin-bottom: 8px; line-height: 1.5; }
+  .improve p { font-size: 15px; color: var(--gray); line-height: 1.8; }
+  .improve .imp-time { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .improve .imp-time .before { font-family: 'Oswald', 'Noto Sans JP', sans-serif; font-size: 22px; font-weight: 600; color: var(--gray);
+    text-decoration: line-through; text-decoration-color: rgba(232,64,28,0.6); text-decoration-thickness: 3px; }
+  .improve .imp-time .to { color: var(--sun); font-weight: 900; }
+  .improve .imp-time .after { font-family: 'Oswald', 'Noto Sans JP', sans-serif; font-size: 36px; font-weight: 700; color: var(--sun); line-height: 1; }
+  .improve .imp-time .unit { font-size: 14px; font-weight: 700; }
+  .improve.cta { background: var(--teal); border-color: var(--teal); color: #fff; display: flex; flex-direction: column; justify-content: center; }
+  .improve.cta p { color: #fff; font-weight: 900; font-size: 17px; line-height: 1.8; }
+
   /* ===== 選ばれる理由 ===== */
   #why-us { background: var(--cream); }
   .whyus-lead { display: flex; align-items: center; gap: 28px; margin-bottom: 28px; }
@@ -328,7 +343,10 @@
     .plan ul { font-size: 14.5px; gap: 5px; }
     .plan-why { font-size: 13px; }
     .training-box { padding: 24px 20px; margin-bottom: 20px; }
-    /* 理由カード */
+    /* 改善カード・理由カード */
+    .improve-grid { gap: 10px; }
+    .improve { padding: 18px 16px; }
+    .improve .icon { font-size: 26px; margin-bottom: 4px; }
     .reasons { gap: 10px; }
     .reason { padding: 18px 16px; }
     .reason .icon { font-size: 24px; margin-bottom: 6px; }
@@ -440,6 +458,45 @@
   </div>
 </section>
 
+<!-- どんな改善ができるの？ -->
+<section id="improve">
+  <div class="inner">
+    <p class="eyebrow">できること</p>
+    <h2 class="title">どんな改善ができるの？</h2>
+    <div class="improve-grid">
+      <div class="improve">
+        <div class="icon">🏥</div>
+        <h3>介護福祉・幼稚園の記録</h3>
+        <p>手書きで記録している利用者さんの情報を、AIが入力・記録します。</p>
+        <div class="imp-time"><span class="before">月30時間</span><span class="to">→</span><span class="after">1</span><span class="unit">時間程度</span></div>
+      </div>
+      <div class="improve">
+        <div class="icon">🚗</div>
+        <h3>配達・送迎のルート</h3>
+        <p>配達や送迎のルートをAIが自動で効率化。日々変わる送迎ルートもAIがアシストします。</p>
+      </div>
+      <div class="improve">
+        <div class="icon">📝</div>
+        <h3>現場会議の議事録</h3>
+        <p>会社にあるテンプレートや書式に合わせて、議事録を自動作成。もうメモを取る必要はありません。</p>
+      </div>
+      <div class="improve">
+        <div class="icon">📅</div>
+        <h3>シフト作成</h3>
+        <p>複雑なシフトをAIがサポート。管理者の負担を大幅に減らします。</p>
+      </div>
+      <div class="improve">
+        <div class="icon">📱</div>
+        <h3>集客・SNS</h3>
+        <p>Instagramの初期設定からSNS戦略、自動宣伝まで、御社の集客をサポートします。</p>
+      </div>
+      <div class="improve cta">
+        <p>まだまだ、あなたの会社に合った<br>オリジナルの業務改善があります。<br>ぜひご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 業種別：時間のBefore→After -->
 <section id="results">
   <div class="inner">
@@ -450,7 +507,7 @@
       <div class="case">
         <span class="case-ind">介護福祉</span>
         <p class="case-task">記録・報告書の作成</p>
-        <div class="case-time"><span class="before">月20時間</span><span class="to">→</span><span class="after">5</span><span class="unit">時間/月</span></div>
+        <div class="case-time"><span class="before">月30時間</span><span class="to">→</span><span class="after">1</span><span class="unit">時間/月</span></div>
       </div>
       <div class="case">
         <span class="case-ind">建設</span>

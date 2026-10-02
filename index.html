@@ -75,6 +75,7 @@
   .lead { font-size: 16px; color: var(--gray); margin-bottom: 32px; }
   .accent { color: var(--sun); }
   .sp-br { display: none; }
+  .sp-hide { }
 
   /* ボタン：押せる所だけが動く */
   .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px;
@@ -130,7 +131,13 @@
   .hero-tag { display: inline-block; background: var(--ink); color: #fff; font-size: 13.5px; font-weight: 700;
     letter-spacing: 0.05em; padding: 6px 14px; margin-bottom: 20px; border-radius: 2px; line-height: 1.55; }
   .hero-catch { font-size: clamp(34px, 4.4vw, 58px); font-weight: 900; line-height: 1.2; margin-bottom: 14px; }
-  .hero-sub { font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; margin-bottom: 14px; }
+  .hero-sub { font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; margin-bottom: 16px; }
+  .hero-keys { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+  .hero-keys span { display: inline-block; font-size: clamp(15px, 1.5vw, 19px); font-weight: 900; line-height: 1.3;
+    padding: 10px 16px; border-radius: 6px; background: var(--cream); border: 2px solid var(--border);
+    transition: transform 0.2s, border-color 0.2s, background-color 0.2s; }
+  .hero-keys span:hover { transform: translateY(-3px); border-color: var(--sun); background: #fff; }
+  .hero-keys span.hot { background: var(--sun); border-color: var(--sun); color: #fff; }
   .hero-fde { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--teal);
     border: 2px solid var(--teal); border-radius: 999px; padding: 6px 16px 6px 8px; margin-bottom: 28px; background: #fff; }
   .hero-fde b { font-size: 15px; letter-spacing: 0.1em; background: var(--teal); color: #fff; padding: 2px 10px; border-radius: 999px; }
@@ -160,10 +167,6 @@
   .highlight { background: linear-gradient(transparent 62%, rgba(232,64,28,0.25) 62%); font-weight: 700; }
 
   /* ===== できること ===== */
-  .group-head { display: flex; align-items: center; gap: 12px; margin: 36px 0 14px; }
-  .group-head:first-of-type { margin-top: 0; }
-  .group-head .g { font-weight: 900; color: #fff; background: var(--ink); font-size: 13px; padding: 4px 12px; border-radius: 3px; letter-spacing: 0.06em; }
-  .group-head h3 { font-size: clamp(18px, 2.2vw, 22px); font-weight: 900; }
   .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
   .svc { position: relative; overflow: hidden; background: #fff; border: 2px solid var(--border); border-radius: 8px;
     padding: 24px 22px; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
@@ -208,6 +211,9 @@
 
   .svc-cta { text-align: center; margin-top: 40px; }
   .svc-cta p { font-size: clamp(17px, 2.2vw, 21px); font-weight: 900; margin-bottom: 18px; }
+
+  #marketing { background: var(--cream); }
+  #marketing .cm-row { background: #fff; }
 
   /* ===== FAQ ===== */
   #faq { background: var(--cream); }
@@ -286,6 +292,7 @@
   @media (max-width: 560px) {
     section { padding: 48px 18px; }
     .sp-br { display: inline; }
+    .sp-hide { display: none; }
     .title { margin-bottom: 14px; }
     .lead { margin-bottom: 22px; }
     nav { display: none; }
@@ -337,6 +344,7 @@
     <nav aria-label="メインナビゲーション">
       <a href="#fde" data-nav="fde">FDEって何？</a>
       <a href="#services" data-nav="services">できること</a>
+      <a href="#marketing" data-nav="marketing">集客・採用</a>
       <a href="#faq" data-nav="faq">よくある質問</a>
       <a href="#contact" data-nav="contact">相談</a>
     </nav>
@@ -355,6 +363,11 @@
         <p class="hero-tag">佐世保・長崎の中小企業専門｜現場密着型のAI導入</p>
         <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
         <p class="hero-sub">現場に入り込んで、いっしょに作ります。</p>
+        <div class="hero-keys" aria-label="主なサービス">
+          <span>人手不足の解消</span>
+          <span>集客・SNS</span>
+          <span class="hot">求人広告の自動化</span>
+        </div>
         <p class="hero-fde"><b>FDE</b>現場密着型のAI導入担当が伺います</p>
         <div class="hero-btns">
           <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" rel="noopener" class="btn line big pulse" data-line="hero">LINEで無料相談 <span class="arrow">→</span></a>
@@ -417,12 +430,8 @@
 <section id="services">
   <div class="inner">
     <p class="eyebrow reveal">できること</p>
-    <h2 class="title reveal">御社の「困った」に、<br class="sp-br">こう応えます。</h2>
-
-    <div class="group-head reveal">
-      <span class="g">A</span>
-      <h3>社内の仕事をラクにする</h3>
-    </div>
+    <h2 class="title reveal">社内の仕事を、<br class="sp-br">AIでラクにする。</h2>
+    <p class="lead reveal d1">御社の「困った」に、こう応えます。</p>
     <div class="svc-grid">
       <div class="svc reveal">
         <div class="icon">📝</div>
@@ -452,10 +461,15 @@
       </div>
     </div>
 
-    <div class="group-head reveal">
-      <span class="g">B</span>
-      <h3>お客さんと人を集める</h3>
-    </div>
+  </div>
+</section>
+
+<!-- 集客・採用 -->
+<section id="marketing">
+  <div class="inner">
+    <p class="eyebrow reveal">集客・採用</p>
+    <h2 class="title reveal">人手不足の解消は、<br class="sp-br">集客と求人から。</h2>
+    <p class="lead reveal d1">SNSで会社の魅力を伝え、お客さんも、働く人も集めます。<br class="sp-hide">求人の案内まで、自動で出し続けられます。</p>
     <div class="svc-grid">
       <div class="svc reveal">
         <div class="icon">📱</div>
@@ -472,7 +486,7 @@
       <div class="svc reveal d2">
         <div class="icon">👥</div>
         <h4>求人募集の自動化</h4>
-        <p>求人の案内を作り、インスタなどに自動で出し続けます。</p>
+        <p>求人の案内を作り、インスタなどに自動で出し続けます。会社の魅力を伝え、応募につなげます。</p>
       </div>
     </div>
 
@@ -645,7 +659,7 @@
           navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-nav') === e.target.id); });
         });
       }, { rootMargin: '-40% 0px -55% 0px' });
-      ['fde', 'services', 'faq', 'contact'].forEach(function (id) {
+      ['fde', 'services', 'marketing', 'faq', 'contact'].forEach(function (id) {
         var s = document.getElementById(id); if (s) secIo.observe(s);
       });
     }

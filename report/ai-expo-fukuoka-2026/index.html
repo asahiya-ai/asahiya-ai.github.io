@@ -30,11 +30,18 @@
   figure { margin: 0 0 16px; }
   figure img { width: 100%; height: auto; display: block; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,.12); background: #fff; }
   .hint { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 8px; }
+  .home { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center;
+    background: #fff; padding: 10px 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08); font-size: 14px; }
+  .home a { color: var(--navy); font-weight: bold; text-decoration: none; }
+  .home .btn { background: var(--orange); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: 13px; }
+  .back { display: block; max-width: 360px; margin: 24px auto 0; padding: 14px 16px; border-radius: 10px;
+    background: var(--navy); color: #fff; text-align: center; font-weight: bold; text-decoration: none; font-size: 16px; }
   footer { text-align: center; font-size: 13px; color: var(--muted); padding: 0 16px 32px; }
   footer a { color: var(--navy); font-weight: bold; }
 </style>
 </head>
 <body>
+<nav class="home"><a href="https://asahiya-ai.com/">AIのアサヒ屋</a><a class="btn" href="https://asahiya-ai.com/">ホームページを見る</a></nav>
 <header>
   <p class="kicker">参加レポート</p>
   <h1>AI博覧会 Fukuoka 2026 で見てきたこと</h1>
@@ -51,6 +58,7 @@
   <figure><a href="slides/s6.jpg"><img src="slides/s6.jpg" alt="これから：売上の1〜2%をAIに" loading="lazy"></a></figure>
   <figure><a href="slides/s7.jpg"><img src="slides/s7.jpg" alt="まとめ" loading="lazy"></a></figure>
   <figure><a href="slides/s8.jpg"><img src="slides/s8.jpg" alt="AIのアサヒ屋から" loading="lazy"></a></figure>
+  <a class="back" href="https://asahiya-ai.com/">AIのアサヒ屋 トップページへ</a>
 </main>
 <footer>
   <a href="https://asahiya-ai.com/">AIのアサヒ屋</a>｜佐世保・長崎の中小企業のAI導入

@@ -75,6 +75,7 @@
   .lead { font-size: 16px; color: var(--gray); margin-bottom: 32px; }
   .accent { color: var(--sun); }
   .sp-br { display: none; }
+  .pc-br { }
   .sp-hide { }
 
   /* ボタン：押せる所だけが動く */
@@ -154,6 +155,14 @@
   .fde-img img { border-radius: 8px; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 30%; }
   .fde-text { flex: 1; }
   .fde-text p { margin-bottom: 16px; }
+  .fde-world { background: #fff; border-left: 5px solid var(--sun); border-radius: 6px; padding: 20px 22px; margin: 4px 0 22px; }
+  .fde-world .w-lead { font-weight: 900; font-size: 16.5px; margin-bottom: 12px; line-height: 1.7; }
+  .fde-world ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; }
+  .fde-world li { font-size: 15px; line-height: 1.6; padding-left: 22px; position: relative; }
+  .fde-world li::before { content: '✓'; position: absolute; left: 0; color: var(--sun); font-weight: 900; }
+  .fde-world li b { display: block; font-size: 15.5px; }
+  .fde-world li span { color: var(--gray); font-size: 14px; }
+  .fde-pledge { font-size: clamp(18px, 2.4vw, 23px); font-weight: 900; color: var(--teal); margin: 0 0 8px; line-height: 1.6; }
   .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 26px 0; }
   .promise { background: #fff; border: 2px solid var(--border); border-radius: 8px; padding: 20px 18px;
     transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
@@ -303,6 +312,7 @@
     .fde-img { flex: none; width: 100%; max-width: 360px; }
     .fde-img img { aspect-ratio: 4 / 3; object-position: 50% 20%; }
     .promises { grid-template-columns: 1fr; }
+    .fde-world ul { grid-template-columns: 1fr; }
     .cm-row { flex-direction: column; text-align: center; }
     .ad-row { grid-template-columns: 1fr 1fr; }
     .ad-text { grid-column: 1 / -1; text-align: center; }
@@ -314,6 +324,7 @@
   @media (max-width: 560px) {
     section { padding: 48px 18px; }
     .sp-br { display: inline; }
+    .pc-br { display: none; }
     .sp-hide { display: none; }
     .title { margin-bottom: 14px; }
     .lead { margin-bottom: 22px; }
@@ -421,6 +432,16 @@
           お客様の現場に入り、仕事の流れを見て、その現場に合う仕組みを作ります。<br>
           アサヒ屋は、作って終わりにしません。
         </p>
+        <div class="fde-world reveal d2">
+          <p class="w-lead">FDEは、Google をはじめ世界中の企業が、いま求めている人材です。<br class="pc-br">求められているのは、こんな力です。</p>
+          <ul>
+            <li><b>経営の視点</b><span>会社全体にとって、何が一番効くかを考える</span></li>
+            <li><b>現場を見て判断する力</b><span>理屈だけでなく、自分の目で見て決める</span></li>
+            <li><b>最前線で改善を進める力</b><span>提案で終わらず、現場で一緒に動かす</span></li>
+            <li><b>コミュニケーション力</b><span>現場の声を聞き、分かる言葉で伝える</span></li>
+          </ul>
+        </div>
+        <p class="fde-pledge reveal d2">長崎のFDEとして、最前線で業務改善します。</p>
         <div class="promises">
           <div class="promise reveal d2">
             <span class="n">1</span>

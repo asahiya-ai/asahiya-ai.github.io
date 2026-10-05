@@ -212,6 +212,18 @@
   .video-facade .label { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 12px 12px; color: #fff; font-size: 13px; font-weight: 700;
     background: linear-gradient(transparent, rgba(0,0,0,0.75)); text-align: center; }
   .video-facade iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .yt-row { margin-top: 18px; background: #fff; border-radius: 10px; padding: 22px 26px; }
+  .yt-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+  .yt-head p { font-size: 16px; font-weight: 900; }
+  .yt-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .yt-grid figure { margin: 0; }
+  .yt-grid .video-facade { aspect-ratio: 4 / 3; }
+  .yt-grid figcaption { font-size: 14px; font-weight: 700; margin-top: 8px; text-align: center; }
+  .yt-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none;
+    border: 2px solid var(--border); border-radius: 999px; padding: 8px 16px; background: #fff; transition: border-color 0.2s, transform 0.2s; }
+  .yt-link:hover { border-color: #FF0000; transform: translateY(-2px); }
+  .yt-link .yt-ico { display: inline-block; width: 22px; height: 15px; border-radius: 4px; background: #FF0000; position: relative; }
+  .yt-link .yt-ico::after { content: ''; position: absolute; left: 8px; top: 3.5px; border-style: solid; border-width: 4px 0 4px 7px; border-color: transparent transparent transparent #fff; }
   .cm-text { flex: 1; }
   .cm-text p { font-size: 16px; font-weight: 700; margin-bottom: 12px; line-height: 1.8; }
   .insta { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none;
@@ -346,6 +358,8 @@
     .svc .icon { font-size: 28px; margin-bottom: 6px; }
     .svc h4 { font-size: 17.5px; }
     .cm-row { padding: 20px 16px; gap: 20px; }
+    .yt-row { padding: 18px 16px; }
+    .yt-grid { grid-template-columns: 1fr; gap: 16px; }
     .ad-row { grid-template-columns: 1fr; gap: 12px; }
     .report-card { padding: 14px; gap: 14px; }
     .svc-cta .btn { width: 100%; }
@@ -358,7 +372,7 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .reveal { opacity: 1; transform: none; }
-    .btn:hover, .svc:hover, .promise:hover, .step:hover, .video-facade:hover, .insta:hover, .head-line:hover { transform: none; }
+    .btn:hover, .svc:hover, .promise:hover, .step:hover, .video-facade:hover, .insta:hover, .yt-link:hover, .head-line:hover { transform: none; }
   }
 </style>
 
@@ -551,7 +565,7 @@
 
     <div class="cm-row reveal">
       <div class="cm-video">
-        <button type="button" class="video-facade" id="cm-facade" style="background-image:url('https://i.ytimg.com/vi/rLwdoyahKGA/oar2.jpg')" aria-label="AIのアサヒ屋 30秒CMを再生">
+        <button type="button" class="video-facade" data-yt="rLwdoyahKGA" data-title="AIのアサヒ屋 30秒CM" style="background-image:url('https://i.ytimg.com/vi/rLwdoyahKGA/oar2.jpg')" aria-label="AIのアサヒ屋 30秒CMを再生">
           <span class="play" aria-hidden="true"></span>
           <span class="label">▶ 30秒CMを見る</span>
         </button>
@@ -559,6 +573,27 @@
       <div class="cm-text">
         <p>アサヒ屋のCMも、この仕組みで作って出しています。</p>
         <a href="https://www.instagram.com/ai_asahiya/" target="_blank" rel="noopener" class="insta"><span class="ig" aria-hidden="true"></span>Instagram @ai_asahiya</a>
+      </div>
+    </div>
+
+    <div class="yt-row reveal">
+      <div class="yt-head">
+        <p>YouTube でも公開しています。</p>
+        <a href="https://www.youtube.com/@asahiya-ai" target="_blank" rel="noopener" class="yt-link"><span class="yt-ico" aria-hidden="true"></span>YouTube @asahiya-ai</a>
+      </div>
+      <div class="yt-grid">
+        <figure>
+          <button type="button" class="video-facade" data-yt="fJHjCugsUPA" data-title="AIのアサヒ屋 CM" style="background-image:url('https://i.ytimg.com/vi/fJHjCugsUPA/hqdefault.jpg')" aria-label="AIのアサヒ屋 CMを再生">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption>AIのアサヒ屋 CM</figcaption>
+        </figure>
+        <figure>
+          <button type="button" class="video-facade" data-yt="UT_n3tTSwbI" data-title="AIのアサヒ屋 CM 第2弾" style="background-image:url('https://i.ytimg.com/vi/UT_n3tTSwbI/hqdefault.jpg')" aria-label="AIのアサヒ屋 CM 第2弾を再生">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption>CM 第2弾</figcaption>
+        </figure>
       </div>
     </div>
 
@@ -739,21 +774,21 @@
     }
 
     /* CM動画：押したら読み込んで再生 */
-    var facade = document.getElementById('cm-facade');
-    if (facade) {
+    document.querySelectorAll('.video-facade[data-yt]').forEach(function (facade) {
       facade.addEventListener('click', function () {
+        var id = facade.getAttribute('data-yt');
         var iframe = document.createElement('iframe');
-        iframe.src = 'https://www.youtube.com/embed/rLwdoyahKGA?autoplay=1&rel=0';
-        iframe.title = 'AIのアサヒ屋 30秒CM';
+        iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+        iframe.title = facade.getAttribute('data-title') || 'AIのアサヒ屋 CM';
         iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share';
         iframe.setAttribute('allowfullscreen', '');
         iframe.referrerPolicy = 'strict-origin-when-cross-origin';
         facade.innerHTML = '';
         facade.appendChild(iframe);
         facade.style.cursor = 'default';
-        if (typeof gtag === 'function') gtag('event', 'cm_play');
+        if (typeof gtag === 'function') gtag('event', 'cm_play', { video: id });
       }, { once: true });
-    }
+    });
 
     /* LINEボタン：押された回数を数える（どの場所かも記録） */
     document.querySelectorAll('a[data-line]').forEach(function (a) {

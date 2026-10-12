@@ -120,8 +120,9 @@
 
   /* ===== 最初の画面 ===== */
   #hero { position: relative; padding: 0; background: #fff; border-bottom: 4px solid var(--sun); overflow: hidden; }
-  .hero-split { display: flex; align-items: stretch; min-height: calc(100vh - var(--head-h)); }
-  .hero-text { flex: 0 0 54%; max-width: 54%; display: flex; flex-direction: column; justify-content: center;
+  /* 下の固定バー（約64px）に窓の説明が隠れないよう、その分だけ低くする */
+  .hero-split { display: flex; align-items: stretch; min-height: calc(100vh - var(--head-h) - 64px); }
+  .hero-text { flex: 0 0 46%; max-width: 46%; display: flex; flex-direction: column; justify-content: center;
     padding: 56px 32px; position: relative; z-index: 2; background: #fff; }
   /* 朝日アーチ：ロゴの太陽を背景のモチーフに（静止） */
   .hero-text::before { content: ''; position: absolute; left: 50%; bottom: -160px; transform: translateX(-50%);
@@ -131,21 +132,33 @@
   .hero-logo { width: 220px; height: 121px; object-fit: contain; margin-bottom: 20px; }
   .hero-tag { display: inline-block; background: var(--ink); color: #fff; font-size: 13.5px; font-weight: 700;
     letter-spacing: 0.05em; padding: 6px 14px; margin-bottom: 20px; border-radius: 2px; line-height: 1.55; }
-  .hero-catch { font-size: clamp(34px, 4.4vw, 58px); font-weight: 900; line-height: 1.2; margin-bottom: 14px; }
+  .hero-catch { font-size: clamp(30px, 3.5vw, 54px); font-weight: 900; line-height: 1.22; margin-bottom: 14px; }
+  .hero-catch .accent { white-space: nowrap; }
   .hero-sub { font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; margin-bottom: 16px; }
-  .hero-keys { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
-  .hero-keys span { display: inline-block; font-size: clamp(15px, 1.5vw, 19px); font-weight: 900; line-height: 1.3;
-    padding: 10px 16px; border-radius: 6px; background: var(--cream); border: 2px solid var(--border);
-    transition: transform 0.2s, border-color 0.2s, background-color 0.2s; }
-  .hero-keys span:hover { transform: translateY(-3px); border-color: var(--sun); background: #fff; }
-  .hero-keys span.hot { background: var(--sun); border-color: var(--sun); color: #fff; }
   .hero-fde { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--teal);
     border: 2px solid var(--teal); border-radius: 999px; padding: 6px 16px 6px 8px; margin-bottom: 28px; background: #fff; }
   .hero-fde b { font-size: 15px; letter-spacing: 0.1em; background: var(--teal); color: #fff; padding: 2px 10px; border-radius: 999px; }
   .hero-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
   .hero-hint { font-size: 14px; color: var(--gray); }
-  .hero-media { flex: 0 0 46%; max-width: 46%; position: relative; overflow: hidden; background: var(--cream); }
-  .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 35% 30%; }
+  /* 3つの窓：マウスに近い窓ほど大きく開き、開いた窓だけ説明が横から入る（動きは下の script） */
+  .hero-windows { flex: 0 0 54%; max-width: 54%; display: flex; gap: 8px; padding: 14px 14px 14px 0; }
+  .hero-win { position: relative; flex: var(--g, 1) 1 0; min-width: 0; overflow: hidden; border-radius: 6px;
+    background: var(--ink); color: #fff; text-decoration: none; --o: 0.3; --px: 0; }
+  .hero-win img { position: absolute; top: 0; left: 50%; height: 100%; width: var(--open-w, 100%); max-width: none;
+    object-fit: cover; transform: translate3d(calc(-50% + var(--px) * 1px), 0, 0) scale(1.03); }
+  .hero-win-shade { position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,26,24,0.82) 0%, rgba(26,26,24,0) 58%),
+                rgba(26,26,24, calc(0.5 - var(--o) * 0.5)); }
+  .hero-win-v { position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+    writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;
+    font-size: clamp(17px, 1.5vw, 21px); font-weight: 900; letter-spacing: 0.18em;
+    opacity: calc(1 - (var(--o) - 0.25) * 2.6); }
+  .hero-win-h { position: absolute; left: 0; right: 0; bottom: 0; padding: 0 28px 28px;
+    opacity: calc((var(--o) - 0.5) * 2.4); transform: translate3d(calc((1 - var(--o)) * 48px), 0, 0); }
+  .hero-win-title { display: block; font-size: clamp(22px, 2.2vw, 30px); font-weight: 900; line-height: 1.3; margin-bottom: 6px; }
+  .hero-win-title::before { content: ''; display: block; width: 32px; height: 4px; background: var(--sun); margin-bottom: 12px; }
+  .hero-win-desc { display: block; font-size: 14.5px; line-height: 1.7; max-width: 30em; color: rgba(255,255,255,0.92); }
+  .hero-win:focus-visible { outline-offset: -3px; }
 
   /* ===== FDEって何？ ===== */
   #fde { background: var(--cream); }
@@ -318,8 +331,11 @@
   /* ===== レスポンシブ ===== */
   @media (max-width: 900px) {
     .hero-split { flex-direction: column; min-height: 0; }
-    .hero-media { order: -1; flex: none; max-width: 100%; aspect-ratio: 3 / 2; }
     .hero-text { flex: none; max-width: 100%; padding: 36px 20px 32px; }
+    .hero-windows { flex: none; max-width: 100%; height: 360px; gap: 6px; padding: 0 12px 20px; }
+    .hero-win-h { padding: 0 16px 18px; }
+    .hero-win-title { font-size: 19px; }
+    .hero-win-desc { font-size: 13px; }
     .fde-wrap { flex-direction: column; }
     .fde-img { flex: none; width: 100%; max-width: 360px; }
     .fde-img img { aspect-ratio: 4 / 3; object-position: 50% 20%; }
@@ -346,8 +362,6 @@
     .hero-logo { display: none; }
     .hero-text { padding: 28px 20px 24px; }
     .hero-catch { font-size: clamp(30px, 8vw, 40px); }
-    .hero-media { aspect-ratio: 4 / 3; }
-    .hero-media img { object-position: 50% 25%; }
     .hero-btns { align-items: stretch; }
     .hero-btns .btn { width: 100%; }
     .svc-grid { gap: 10px; }
@@ -412,11 +426,6 @@
         <p class="hero-tag">佐世保・長崎の中小企業専門｜現場密着型のAI導入</p>
         <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
         <p class="hero-sub">現場に入り込んで、いっしょに作ります。</p>
-        <div class="hero-keys" aria-label="主なサービス">
-          <span>人手不足の解消</span>
-          <span>集客・SNS</span>
-          <span class="hot">求人広告の自動化</span>
-        </div>
         <p class="hero-fde"><b>FDE</b>現場密着型のAI導入担当が伺います</p>
         <div class="hero-btns">
           <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" rel="noopener" class="btn line big pulse" data-line="hero">LINEで無料相談 <span class="arrow">→</span></a>
@@ -424,8 +433,25 @@
         </div>
       </div>
     </div>
-    <div class="hero-media">
-      <img src="images/about/about-profile.jpg" alt="ノートパソコンの画面を指さして説明する様子" width="900" height="1274" fetchpriority="high">
+    <div class="hero-windows" aria-label="主なサービス">
+      <a class="hero-win" href="#services">
+        <img src="images/results/results-seminar.jpg" alt="" width="1600" height="1066" style="object-position: 55% 40%;" fetchpriority="high">
+        <span class="hero-win-shade"></span>
+        <span class="hero-win-v" aria-hidden="true">AI研修</span>
+        <span class="hero-win-h"><span class="hero-win-title">AI研修</span><span class="hero-win-desc">経営者・後継者・エース社員向け。自分の仕事にそのまま使える形で学びます。</span></span>
+      </a>
+      <a class="hero-win" href="#marketing">
+        <img src="images/hero/hero-2.jpg" alt="" width="1920" height="1092" style="object-position: 32% 40%;">
+        <span class="hero-win-shade"></span>
+        <span class="hero-win-v" aria-hidden="true">集客・求人の自動化</span>
+        <span class="hero-win-h"><span class="hero-win-title">集客・求人の自動化</span><span class="hero-win-desc">インスタの投稿も、求人の案内も、決めた日時に自動で出し続けます。お客さんも、働く人も集めます。</span></span>
+      </a>
+      <a class="hero-win" href="#services">
+        <img src="images/about/about-profile.jpg" alt="" width="900" height="1274" style="object-position: 30% 40%;">
+        <span class="hero-win-shade"></span>
+        <span class="hero-win-v" aria-hidden="true">アプリ制作</span>
+        <span class="hero-win-h"><span class="hero-win-title">アプリ制作</span><span class="hero-win-desc">議事録、納品書の入力、シフト作成。御社の手作業に合わせて、いっしょに作ります。</span></span>
+      </a>
     </div>
   </div>
 </section>
@@ -753,6 +779,82 @@
           card.style.setProperty('--y', (e.clientY - r.top) + 'px');
         });
       });
+    }
+
+    /* 最初の画面の3つの窓：マウスに近い窓ほど大きく開く。
+       指の端末では自動で順に開き、閉じた窓を触ると開く（開いた窓を触るとその説明へ飛ぶ） */
+    var winBox = document.querySelector('.hero-windows');
+    if (winBox) {
+      var wins = Array.prototype.slice.call(winBox.querySelectorAll('.hero-win'));
+      var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var pos = 1.5, idx = 1, focusIdx = -1, last = 0, boxLeft = 0, boxW = 1, spread = 2.6;
+      var ptrX = 0, ptrIn = false, running = false, inView = true;
+
+      var openAt = function (p) {
+        wins.forEach(function (w, i) {
+          var d = p - (i + 0.5), o = Math.exp(-(d * d) / 0.6);
+          w.style.setProperty('--g', (1 + spread * o).toFixed(3));
+          w.style.setProperty('--o', o.toFixed(3));
+          w.style.setProperty('--px', (d * -36).toFixed(1));
+        });
+      };
+      var measure = function () {
+        var r = winBox.getBoundingClientRect();
+        boxLeft = r.left; boxW = r.width || 1;
+        /* スマホは横幅が狭いので、開いた窓をより広く取る */
+        spread = window.matchMedia('(max-width: 900px)').matches ? 5 : 2.6;
+        winBox.style.setProperty('--open-w', Math.round((r.width - 30) * (spread > 3 ? 0.7 : 0.62)) + 'px');
+        openAt(pos);
+      };
+      var frame = function (t) {
+        if (!running) return;
+        var tp;
+        if (focusIdx >= 0) tp = focusIdx + 0.5;
+        else if (!fine) { if (t - last > 3400) { idx = (idx + 1) % wins.length; last = t; } tp = idx + 0.5; }
+        else if (ptrIn) tp = Math.min(1, Math.max(0, (ptrX - boxLeft) / boxW)) * wins.length;
+        else tp = 1.5;
+        pos += (tp - pos) * 0.07;
+        openAt(pos);
+        requestAnimationFrame(frame);
+      };
+      /* 画面に見えている間だけ動かす */
+      var update = function () {
+        var on = !reduce && inView && !document.hidden;
+        if (on && !running) { running = true; requestAnimationFrame(frame); }
+        else if (!on) running = false;
+      };
+
+      var hero = document.getElementById('hero');
+      hero.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        ptrX = e.clientX; ptrIn = true;
+      }, { passive: true });
+      hero.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') ptrIn = false; });
+
+      wins.forEach(function (w, i) {
+        w.addEventListener('click', function (e) {
+          if (fine && !reduce) return;
+          if (idx !== i) { e.preventDefault(); idx = i; last = performance.now(); if (reduce) openAt(i + 0.5); }
+        });
+        /* キーボードで選んだ窓を開く（マウスで押したときは除く） */
+        w.addEventListener('focus', function () {
+          var kb = true;
+          try { kb = w.matches(':focus-visible'); } catch (err) {}
+          if (!kb) return;
+          focusIdx = i; idx = i;
+          if (reduce) openAt(i + 0.5);
+        });
+        w.addEventListener('blur', function () { focusIdx = -1; });
+      });
+
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) { inView = entries[0].isIntersecting; update(); }).observe(winBox);
+      }
+      document.addEventListener('visibilitychange', update);
+      window.addEventListener('resize', measure);
+      window.addEventListener('load', measure);
+      measure();
+      update();
     }
 
     /* ヘッダーのメニュー：今いるコーナーに下線 */

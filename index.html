@@ -237,7 +237,7 @@
   .svc-imagine { font-size: 13px; color: var(--gray); margin-top: 16px; }
 
   /* AI顧問（5つをまとめて任せるプラン） */
-  .komon { position: relative; overflow: hidden; display: grid; grid-template-columns: 0.9fr 2fr; gap: 28px; margin-top: 28px;
+  .komon { position: relative; overflow: hidden; overflow: clip; display: grid; grid-template-columns: 0.9fr 2fr; gap: 28px; margin-top: 28px;
     background: var(--ink); color: #fff; border-radius: 14px; padding: 34px; }
   .komon::before { content: ''; position: absolute; left: -180px; bottom: -260px; width: 560px; height: 560px; border-radius: 50%; pointer-events: none;
     background: radial-gradient(circle, rgba(232,64,28,0.22) 0%, rgba(232,64,28,0.08) 45%, transparent 68%); }
@@ -248,22 +248,25 @@
   .komon-range { font-size: 15px; font-weight: 700; margin-bottom: 18px; font-variant-numeric: tabular-nums; }
   .komon-range b { font-size: 26px; font-weight: 900; }
   .komon-range span { font-size: 12.5px; font-weight: 400; color: rgba(255,255,255,0.6); }
-  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .plan { display: flex; flex-direction: column; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 18px 16px; }
-  .plan.top { background: #fff; color: var(--ink); border: 0; border-top: 5px solid var(--sun); }
+  .plans { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .plan { display: flex; flex-direction: column; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 10px; padding: 18px 16px;
+    cursor: pointer; transition: background-color .3s, color .3s, border-color .3s, box-shadow .3s, transform .3s var(--ease); }
+  .plan:hover { border-color: rgba(255,255,255,0.4); transform: translateY(-3px); }
+  /* 押した（スマホでは指で送って見えている）プランだけ白くなる */
+  .plan.on { background: #fff; color: var(--ink); border-color: #fff; box-shadow: inset 0 5px 0 var(--sun); }
   .plan-name { font-size: 16.5px; font-weight: 900; line-height: 1.4; }
   .plan-name small { display: block; font-size: 12px; font-weight: 700; color: var(--gray); }
   .plan-price { font-size: 13px; font-weight: 700; margin: 8px 0 2px; font-variant-numeric: tabular-nums; line-height: 1.5; }
   .plan-price b { font-size: 24px; font-weight: 900; }
-  .plan-max { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
-  .plan-max b { font-size: 17px; font-weight: 900; color: var(--sun); }
-  .plan-max span { white-space: nowrap; }
   .plan-for { font-size: 13px; font-weight: 700; color: var(--sun); padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.14); }
-  .plan.top .plan-for { border-color: var(--border); }
+  .plan.on .plan-for { border-color: var(--border); }
   .plan ul { list-style: none; display: grid; gap: 6px; }
   .plan li { position: relative; padding-left: 20px; font-size: 13.5px; line-height: 1.65; color: rgba(255,255,255,0.86); }
   .plan li::before { content: '✓'; position: absolute; left: 0; color: var(--sun); font-weight: 900; }
-  .plan.top li { color: #333; }
+  .plan.on li { color: #333; }
+  .plan-dots { display: none; }
+  .app-fee { margin-top: 18px; font-size: 15px; font-weight: 700; }
+  .app-fee b { font-size: 22px; font-weight: 900; color: var(--sun); margin: 0 2px; }
   .komon-note { grid-column: 1 / -1; font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: -10px; }
 
   /* 押したカードの画面が、画面いっぱいに広がる */
@@ -531,13 +534,22 @@
     .komon { grid-template-columns: 1fr; padding: 28px 22px; gap: 22px; }
   }
   @media (max-width: 700px) {
-    .plans { grid-template-columns: 1fr; }
+    /* プランは指で横に送る */
+    .plans { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 22px;
+      margin: 0 -22px; padding: 4px 22px 6px; scrollbar-width: none; }
+    .plans::-webkit-scrollbar { display: none; }
+    .plan { flex: 0 0 84%; scroll-snap-align: start; }
+    .plan:hover { transform: none; }
+    .plan-dots { display: flex; justify-content: center; gap: 8px; margin-top: -8px; }
+    .plan-dots i { width: 8px; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.3); transition: width .3s, background-color .3s; }
+    .plan-dots i.on { width: 22px; background: var(--sun); }
   }
   @media (max-width: 560px) {
     .cards { grid-template-columns: 1fr; gap: 12px; }
     .card:last-child:nth-child(odd) { grid-column: auto; }
     .c-title { font-size: 17.5px; }
     .komon { padding: 24px 18px; }
+    .plans { scroll-padding: 0 18px; margin: 0 -18px; padding: 4px 18px 6px; }
     .b-modal { padding: 0; }
     .b-panel { width: 100%; height: 100%; max-height: none; border-radius: 0; }
     .b-head { padding: 18px 16px 0; }
@@ -899,6 +911,7 @@
         </span>
       </button>
     </div>
+    <p class="app-fee reveal">アプリの利用料は、<b>月額5,000円</b>から。</p>
 
     <!-- AI顧問：上の5つを、まとめて任せるプラン -->
     <div class="komon reveal" id="komon">
@@ -906,11 +919,11 @@
         <p class="komon-kicker">まとめて任せたい会社へ</p>
         <h3 class="komon-title">AI顧問</h3>
         <p class="komon-lead">社外のAI責任者として、毎月いっしょに進めます。上の5つから、御社のいまに合うものを組み合わせます。</p>
-        <p class="komon-range">月額 <b>29,800</b>円から <span>（税別）</span><br>最上位は <b>100万</b>円〜＋インセンティブ</p>
+        <p class="komon-range">月額 <b>29,800</b>円から <span>（税別）</span></p>
         <button type="button" class="ghost" data-open="komon" aria-haspopup="dialog">1か月の流れを見る</button>
       </div>
       <div class="plans">
-        <div class="plan">
+        <div class="plan" tabindex="0" role="button" aria-pressed="false">
           <p class="plan-name">ライト</p>
           <p class="plan-price"><b>29,800</b>円／月</p>
           <p class="plan-for">まず、相談相手がほしい</p>
@@ -920,7 +933,7 @@
             <li>御社に合うAIの使い方を毎月ご提案</li>
           </ul>
         </div>
-        <div class="plan">
+        <div class="plan" tabindex="0" role="button" aria-pressed="false">
           <p class="plan-name">スタンダード</p>
           <p class="plan-price"><b>79,800</b>円／月</p>
           <p class="plan-for">毎月ひとつずつ、仕事をラクにしたい</p>
@@ -931,19 +944,9 @@
             <li>社員さんからの質問窓口</li>
           </ul>
         </div>
-        <div class="plan top">
-          <p class="plan-name">社外CAIO<small>最高AI責任者</small></p>
-          <p class="plan-price"><b>198,000</b>円〜／月</p>
-          <p class="plan-max">最上位は <b>100万円〜</b><span>＋インセンティブ</span></p>
-          <p class="plan-for">AI導入を、会社ごと任せたい</p>
-          <ul>
-            <li>経営会議に同席し、AIの方針と次の一手を決める</li>
-            <li>FDEとして現場に入り、業務アプリを作って定着まで</li>
-            <li>SNS・求人の自動化まで</li>
-          </ul>
-        </div>
       </div>
-      <p class="komon-note">※ 訪問の回数と範囲は、会社の規模とご希望に合わせてお見積りします。インセンティブ（成果に応じた報酬）の決め方は、ご契約のときに一緒に決めます。</p>
+      <p class="plan-dots" aria-hidden="true"><i></i><i></i></p>
+      <p class="komon-note">※ 訪問の回数と範囲は、会社の規模とご希望に合わせてお見積りします。</p>
     </div>
     <p class="svc-imagine">※ 画面はイメージです。</p>
   </div>
@@ -1630,6 +1633,30 @@
           else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
       });
+    }
+
+    /* AI顧問のプラン：押したプランだけ色が変わる。スマホは指で横に送り、見えているプランの色が変わる */
+    var plans = document.querySelectorAll('#komon .plan'), planDots = document.querySelectorAll('#komon .plan-dots i');
+    var pickPlan = function (p) {
+      plans.forEach(function (x, i) {
+        var on = x === p;
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (planDots[i]) planDots[i].classList.toggle('on', on);
+      });
+    };
+    plans.forEach(function (p) {
+      p.addEventListener('click', function () { pickPlan(p); });
+      p.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickPlan(p); } });
+    });
+    var planBox = document.querySelector('#komon .plans');
+    if (planBox && 'IntersectionObserver' in window) {
+      var planNarrow = window.matchMedia('(max-width: 700px)');
+      var planIo = new IntersectionObserver(function (entries) {
+        if (!planNarrow.matches) return;
+        entries.forEach(function (e) { if (e.intersectionRatio >= 0.75) pickPlan(e.target); });
+      }, { root: planBox, threshold: [0.75] });
+      plans.forEach(function (p) { planIo.observe(p); });
     }
 
     /* ヘッダーのメニュー：今いるコーナーに下線 */

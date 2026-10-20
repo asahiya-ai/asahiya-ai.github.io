@@ -585,6 +585,7 @@
   #report { padding-top: 0; }
   .report-card { display: flex; gap: 24px; align-items: center; background: #fff; border: 2px solid var(--border); border-radius: 10px;
     padding: 18px; color: inherit; text-decoration: none; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; }
+  .report-card + .report-card { margin-top: 18px; }
   .report-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.10); border-color: var(--sun); }
   .report-thumb { flex: 0 0 300px; }
   .report-thumb img { width: 100%; height: auto; display: block; border-radius: 6px; border: 1px solid var(--border); }
@@ -647,6 +648,7 @@
   footer { background: #000; color: rgba(255,255,255,0.6); text-align: center; padding: 44px 20px 40px; }
   footer .f-logo { width: 240px; height: 134px; object-fit: contain; margin: 0 auto 16px; }
   footer .f-sub { font-size: 14px; margin-bottom: 6px; }
+  footer .f-about { color: inherit; text-underline-offset: 3px; }
   footer .f-rep { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 700; margin-bottom: 6px; }
   footer .f-area { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 14px; }
   footer .f-copy { font-size: 12px; color: rgba(255,255,255,0.4); }
@@ -662,6 +664,16 @@
 
   /* ===== レスポンシブ ===== */
   @media (max-width: 900px) {
+    /* メニューは黒帯の下にタブで出す（指で横に送れる） */
+    nav { position: fixed; top: var(--head-h); left: 0; right: 0; height: 44px; gap: 2px; padding: 0 8px;
+      background: var(--ink2); border-top: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-right: 28px;
+      -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(90deg, #000 calc(100% - 28px), transparent); }
+    nav::-webkit-scrollbar { display: none; }
+    nav a { flex: none; display: flex; align-items: center; height: 44px; padding: 0 11px; white-space: nowrap; }
+    nav a::after { left: 8px; right: 8px; height: 3px; }
+    main { padding-top: calc(var(--head-h) + 44px); }
+    section { scroll-margin-top: calc(var(--head-h) + 52px); }
     .hero-split { flex-direction: column; min-height: 0; }
     .hero-text { flex: none; max-width: 100%; padding: 36px 20px 32px; }
     .hero-windows { flex: none; max-width: 100%; height: 360px; gap: 6px; padding: 0 12px 20px; }
@@ -688,7 +700,6 @@
     .sp-hide { display: none; }
     .title { margin-bottom: 14px; }
     .lead { margin-bottom: 22px; }
-    nav { display: none; }
     .head-line { font-size: 13px; padding: 9px 14px; }
     .head-logo img { width: 158px; height: 40px; }
     .hero-logo { display: none; }
@@ -740,6 +751,7 @@
       <a href="#fde" data-nav="fde">FDEって何？</a>
       <a href="#services" data-nav="services">できること</a>
       <a href="#marketing" data-nav="marketing">集客・採用</a>
+      <a href="about/">代表紹介</a>
       <a href="#faq" data-nav="faq">よくある質問</a>
       <a href="#contact" data-nav="contact">相談</a>
     </nav>
@@ -1000,6 +1012,15 @@
 <!-- レポート -->
 <section id="report">
   <div class="inner">
+    <a class="report-card reveal" href="about/">
+      <span class="report-thumb"><img src="about/images/card.jpg" width="436" height="291" loading="lazy" alt="スーツ姿の代表 三宅耕平"></span>
+      <span class="report-body">
+        <span class="eyebrow">代表紹介</span>
+        <span class="report-title">神戸から来て、佐世保で生きると決めました。</span>
+        <span class="report-desc">代表 三宅耕平のごあいさつと経歴です。お仕事は、原則 長崎県内だけ。佐世保キックボクシング倶楽部の活動も。</span>
+        <span class="report-more">代表紹介を見る <span class="arrow">→</span></span>
+      </span>
+    </a>
     <a class="report-card reveal" href="report/ai-expo-fukuoka-2026/">
       <span class="report-thumb"><img src="report/ai-expo-fukuoka-2026/slides/s1.jpg" width="1600" height="900" loading="lazy" alt="AI博覧会 Fukuoka 2026 参加レポートの表紙"></span>
       <span class="report-body">
@@ -1101,7 +1122,7 @@
 <footer>
   <img src="images/logo-kabushiki-white.png" alt="株式会社AIのアサヒ屋" class="f-logo" loading="lazy" width="560" height="313">
   <p class="f-sub">佐世保・長崎の中小企業専門 現場密着型のAI導入</p>
-  <p class="f-rep">代表取締役：三宅 耕平</p>
+  <p class="f-rep">代表取締役：<a href="about/" class="f-about">三宅 耕平（代表紹介）</a></p>
   <p class="f-area">長崎県佐世保市を拠点に、長崎県内へ直接お伺いします</p>
   <p class="f-copy">© 2026 株式会社AIのアサヒ屋</p>
 </footer>
@@ -1610,7 +1631,12 @@
       var secIo = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
-          navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('data-nav') === e.target.id); });
+          navLinks.forEach(function (a) {
+            var on = a.getAttribute('data-nav') === e.target.id;
+            a.classList.toggle('active', on);
+            var bar = a.parentNode;
+            if (on && bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: Math.max(0, a.offsetLeft - (bar.clientWidth - a.offsetWidth) / 2), behavior: 'smooth' });
+          });
         });
       }, { rootMargin: '-40% 0px -55% 0px' });
       ['fde', 'services', 'marketing', 'faq', 'contact'].forEach(function (id) {

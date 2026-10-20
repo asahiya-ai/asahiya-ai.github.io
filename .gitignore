@@ -12,6 +12,8 @@ node_modules/
 *.mov
 *.mp3
 *.wav
+# 例外：代表紹介ページの短い動画（軽く作り直した 2〜3MB の2本だけ）
+!/about/video/*.mp4
 
 # サイトの素材ではない作業ファイル（このリポは GitHub Pages で公開されるので、`git add .` で上がらないようにする）
 # 本来の置き場は asahiya/CLAUDE.md §5（提案書→consulting/teian、素材→assets/raw）

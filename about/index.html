@@ -87,6 +87,7 @@
   .sec.alt { background: var(--alt); }
   h2 { font-family: var(--serif); font-weight: 700; font-size: clamp(25px, 3.4vw, 34px); line-height: 1.5; color: var(--ink);
     padding-bottom: 18px; margin-bottom: 30px; border-bottom: 1px solid var(--rule); position: relative; }
+  h2 span { display: inline-block; }
   h2::after { content: ''; position: absolute; left: 0; bottom: -1px; width: 56px; height: 3px; background: var(--sun); }
   .sec p + p { margin-top: 14px; }
   .note { font-size: 13px; color: var(--gray); line-height: 1.7; }
@@ -150,29 +151,14 @@
 
   /* ===== キックボクシング ===== */
   .kick { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-  .ba { margin: 28px 0; padding: 20px 24px; background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--sun); }
-  .ba-title { font-weight: 700; font-size: 15px; color: var(--ink); }
-  .ba-row { display: flex; align-items: baseline; gap: 14px; font-family: var(--serif); font-weight: 900; margin: 4px 0 6px; }
-  .ba-row .before { font-size: 30px; color: #9A928A; }
-  .ba-row .after { font-size: 44px; color: var(--sun); }
-  .ba-row .arrow { font-size: 22px; color: #B9B0A6; }
-  .ba-row small { font-size: 15px; margin-left: 2px; }
   .links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
   .pill { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 15px;
     padding: 12px 20px; border-radius: 6px; border: 1px solid var(--ink); background: #fff; color: var(--ink); transition: background-color .2s, color .2s; }
   .pill:hover { background: var(--ink); color: #fff; }
   .pill svg { width: 20px; height: 20px; flex: none; }
-  .photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .photos figure { margin: 0; }
-  .photos img { width: 100%; object-fit: cover; }
-  .photos .p-gloves img { aspect-ratio: 3 / 4; object-position: 50% 20%; }
-  .photos .p-ring img { aspect-ratio: 3 / 4; object-position: 45% 30%; }
-  .photos .p-wide { grid-column: 1 / -1; }
-  .photos .p-wide img { aspect-ratio: 16 / 9; object-position: 50% 45%; }
-  .photos figcaption { font-size: 13px; color: var(--gray); margin-top: 6px; line-height: 1.6; }
 
   /* 動画カード：押すと大きく再生 */
-  .vcard { grid-column: 1 / -1; display: flex; align-items: center; gap: 18px; width: 100%; text-align: left; background: var(--ink); color: #fff;
+  .vcard { display: flex; align-items: center; gap: 18px; width: 100%; text-align: left; background: var(--ink); color: #fff;
     border: none; padding: 12px; cursor: pointer; font: inherit; transition: background-color .2s; }
   .vcard:hover { background: #33312E; }
   .vthumb { position: relative; flex: none; width: 92px; aspect-ratio: 9 / 16; overflow: hidden; background: #000; }
@@ -267,8 +253,7 @@
     .stat { grid-template-columns: 1fr; padding: 20px; }
     .stat-num { grid-row: auto; }
     .stat-num b { font-size: 38px; }
-    .ba-row .after { font-size: 38px; }
-    .btn { width: 100%; }
+      .btn { width: 100%; }
     .cta-bar .bar-line { flex: 0 0 74%; font-size: 15px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -387,7 +372,7 @@
   <div class="wrap">
     <h2>長崎への想い</h2>
     <p class="decl"><span>お仕事は、</span><span>原則 長崎県内だけ。</span></p>
-    <p class="decl-sub">そう決めています。この町で、家族と生きていくと決めたからです。</p>
+    <p class="decl-sub">そう決めています。この街で、家族と生きていくと決めたからです。</p>
 
     <div class="stat">
       <p class="stat-num"><small>全国の市町村で</small><b>ワースト1位</b></p>
@@ -396,10 +381,10 @@
     </div>
 
     <div class="thought">
-      <p>若い人が町を出ていき、どの会社も「人が足りない」と悩んでいます。</p>
+      <p>若い人が街を出ていき、どの会社も「人が足りない」と悩んでいます。</p>
       <p>人を増やすのが難しいなら、AIで一人ひとりの仕事を軽くする。それが、長崎を元気にする近道だと考えています。</p>
       <p>遠くの大きな仕事より、車で伺える距離の会社さんと、顔を合わせて長くお付き合いしたい。困ったときに「すぐ行きます」と言える距離にいたいのです。</p>
-      <p class="quote">裏切らない。<br><span>この町で生きていくから、</span><span>裏切れない。</span></p>
+      <p class="quote">裏切らない。<br><span>この街で生きていくから、</span><span>裏切れない。</span></p>
     </div>
 
     <ul class="promises">
@@ -418,17 +403,10 @@
 <!-- キックボクシング -->
 <section class="sec alt" id="kick">
   <div class="wrap">
-    <h2>佐世保キックボクシング倶楽部</h2>
+    <h2><span>佐世保キックボクシング</span><span>倶楽部</span></h2>
     <div class="kick">
       <div>
         <p>佐世保キックボクシング倶楽部は、趣味として地域の仲間と集まったことから、2023年9月に開催がスタートしました。いまは初心者も女性も、忙しい社会人も、自分のペースで体を動かせる場になっています。</p>
-        <p>私自身は、神戸市アマチュアキックボクシング大会の無差別級で優勝。プロのリングにも立ってきました。</p>
-        <div class="ba">
-          <p class="ba-title">練習1回あたりの参加者（平均）</p>
-          <p class="ba-row"><span class="before">6.1<small>人</small></span><span class="arrow" aria-hidden="true">→</span><span class="after">11.9<small>人</small></span></p>
-          <p class="note">2026年5月末から、AIのアサヒ屋が動画づくりと投稿の仕組みを担当。その前の10回と、あとの9回の平均です（倶楽部の参加表より）。</p>
-        </div>
-        <p>自分の倶楽部で試して、効いたやり方だけを、お客さんにもお届けしています。</p>
         <div class="links">
           <a class="pill" href="https://web-blend.com/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -438,23 +416,11 @@
             Instagram @sasebo_kickboxing</a>
         </div>
       </div>
-      <div class="photos">
-        <figure class="p-gloves">
-          <img src="images/kick-gloves.jpg" alt="グローブを着けた三宅" width="410" height="546" loading="lazy">
-          <figcaption>練習会にて</figcaption>
-        </figure>
-        <figure class="p-ring">
-          <img src="images/ring.jpg" alt="リングの上で両手を上げる三宅" width="760" height="754" loading="lazy">
-          <figcaption>リングに立っていたころ</figcaption>
-        </figure>
+      <div>
         <button type="button" class="vcard" data-video="video/kick-practice.mp4" data-title="佐世保キックボクシング倶楽部の練習（長崎県立武道館）">
           <span class="vthumb"><img src="video/kick-practice.jpg" alt="" width="540" height="960" loading="lazy"></span>
           <span class="vtext"><b>練習の様子を見る</b><span>長崎県立武道館での練習（2026年10月）</span><em>押すと動画が流れます（20秒・音なし）</em></span>
         </button>
-        <figure class="p-wide">
-          <img src="images/nakama.jpg" alt="練習仲間と長崎県立武道館の前で撮った写真（仲間の顔は隠しています）" width="1000" height="750" loading="lazy">
-          <figcaption>練習仲間と、長崎県立武道館の前で（仲間の顔は隠しています）</figcaption>
-        </figure>
       </div>
     </div>
   </div>
@@ -466,7 +432,7 @@
     <h2>家族</h2>
     <div class="family">
       <p>妻と、2人の娘との4人家族です。</p>
-      <p>娘たちが大きくなったとき、「佐世保で育ってよかった」と思える町にしたい。それが、私がこの町で仕事をする一番の理由です。</p>
+      <p>娘たちが大きくなったとき、「佐世保で育ってよかった」と思える街にしたい。それが、私がこの街で仕事をする一番の理由です。</p>
       <p>家族との時間を大切にしたいからこそ、お客さんの会社でも、みんなが早く家に帰れる仕組みをつくりたいと考えています。</p>
     </div>
   </div>
@@ -484,7 +450,6 @@
           <li>学校給食の品評会で、最下位だったチームを3年連続の最優秀賞へ</li>
           <li>大手企業のDX推進課で、最優秀プロジェクトとして2年連続のチーム賞を受賞</li>
           <li>中小企業大学校で、経営分析・助成金の活用・業務改善を学ぶ（2011年）</li>
-          <li>神戸市アマチュアキックボクシング大会 無差別級 優勝</li>
           <li>熊本地震・東日本大震災の被災地でボランティア</li>
         </ul>
       </div>

@@ -93,7 +93,7 @@
 
   /* ===== 最初の画面 ===== */
   .hero { border-bottom: 1px solid var(--rule); }
-  .hero .wrap { display: grid; grid-template-columns: 400px 1fr; gap: 56px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
+  .hero .wrap { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; padding-top: 56px; padding-bottom: 56px; }
   .hero-photo { margin: 0; }
   .hero-photo img { width: 100%; aspect-ratio: 436 / 497; object-fit: cover; border-right: 6px solid var(--sun); }
   .hero-label { font-weight: 700; font-size: 15px; color: var(--sun); letter-spacing: .08em; }
@@ -242,7 +242,7 @@
   @media (max-width: 900px) {
     .site-nav { display: none; }
     .hero .wrap { grid-template-columns: 1fr; gap: 30px; padding-top: 32px; padding-bottom: 44px; }
-    .hero-photo { max-width: 400px; }
+    .hero-photo { max-width: 260px; }
     .greet, .kick, .career { grid-template-columns: 1fr; gap: 40px; }
     .promises { grid-template-columns: 1fr; }
     .promises li, .promises li + li { padding: 18px 0; border-left: none; }
@@ -255,7 +255,7 @@
     .head-line { font-size: 13px; padding: 9px 13px; }
     .tabs a { padding: 0 11px; }
     .hero .wrap { gap: 22px; padding-top: 22px; }
-    .hero-photo img { aspect-ratio: 4 / 3; object-position: 50% 22%; }
+    .hero-photo { max-width: 200px; }
     .hero-name { font-size: 40px; }
     .hero h1 { font-size: 25px; margin-top: 22px; }
     .vow { font-size: 17px; }

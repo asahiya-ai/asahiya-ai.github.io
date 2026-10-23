@@ -142,6 +142,15 @@
   .hero-fde { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 700; color: var(--teal);
     border: 2px solid var(--teal); border-radius: 999px; padding: 6px 16px 6px 8px; margin-bottom: 28px; background: #fff; }
   .hero-fde b { font-size: 15px; letter-spacing: 0.1em; background: var(--teal); color: #fff; padding: 2px 10px; border-radius: 999px; }
+  /* AIのほかに頼めること（HP作成・SNS集客）を、最初の画面で目に入れる */
+  .hero-more { display: flex; align-items: center; gap: 12px; max-width: 480px; margin-bottom: 26px; padding: 12px 16px;
+    background: var(--cream); border-left: 4px solid var(--sun); border-radius: 4px; color: var(--ink); text-decoration: none;
+    font-size: 15px; font-weight: 700; line-height: 1.6; transition: background 0.2s; }
+  .hero-more .nb { display: inline-block; }
+  .hero-more b { color: var(--sun); }
+  .hero-more .arrow { flex: none; margin-left: auto; color: var(--sun); transition: transform 0.2s; }
+  .hero-more:hover { background: #ECE8E0; }
+  .hero-more:hover .arrow { transform: translateX(4px); }
   .hero-btns { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
   .hero-hint { font-size: 14px; color: var(--gray); }
   /* 3つの窓：マウスに近い窓ほど大きく開き、開いた窓だけ説明が横から入る（動きは下の script） */
@@ -750,7 +759,7 @@
     <nav aria-label="メインナビゲーション">
       <a href="#fde" data-nav="fde">FDEって何？</a>
       <a href="#services" data-nav="services">できること</a>
-      <a href="#marketing" data-nav="marketing">集客・採用</a>
+      <a href="#marketing" data-nav="marketing">HP・SNS集客</a>
       <a href="about/">代表紹介</a>
       <a href="#faq" data-nav="faq">よくある質問</a>
       <a href="#contact" data-nav="contact">相談</a>
@@ -771,6 +780,10 @@
         <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
         <p class="hero-sub">現場に入り込んで、いっしょに作ります。</p>
         <p class="hero-fde"><b>FDE</b>現場密着型のAI導入担当が伺います</p>
+        <a class="hero-more" href="#marketing">
+          <span><span class="nb"><b>ホームページ作成</b>も、</span><span class="nb"><b>SNS運用・集客</b>も、お手伝いします。</span></span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
         <div class="hero-btns">
           <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" rel="noopener" class="btn line big pulse" data-line="hero">LINEで無料相談 <span class="arrow">→</span></a>
           <p class="hero-hint">「HPを見ました」の一言だけで大丈夫です。</p>
@@ -787,8 +800,8 @@
       <a class="hero-win" href="#marketing">
         <img src="images/hero/hero-2.jpg" alt="" width="1920" height="1092" style="object-position: 32% 40%;">
         <span class="hero-win-shade"></span>
-        <span class="hero-win-v" aria-hidden="true">集客・求人の自動化</span>
-        <span class="hero-win-h"><span class="hero-win-title">集客・求人の自動化</span><span class="hero-win-desc">インスタの投稿も、求人の案内も、決めた日時に自動で出し続けます。お客さんも、働く人も集めます。</span></span>
+        <span class="hero-win-v" aria-hidden="true">ホームページ・SNS集客</span>
+        <span class="hero-win-h"><span class="hero-win-title">ホームページ作成<br>SNS運用・集客</span><span class="hero-win-desc">スマホで見やすいHPから、インスタの投稿まで。求人の案内も、決めた日時に自動で出し続けます。</span></span>
       </a>
       <a class="hero-win" href="#services">
         <img src="images/about/about-profile.jpg" alt="" width="900" height="1274" style="object-position: 30% 40%;">
@@ -936,13 +949,13 @@
 <!-- 集客・採用 -->
 <section id="marketing">
   <div class="inner">
-    <p class="eyebrow reveal">集客・採用</p>
+    <p class="eyebrow reveal">ホームページ・SNS集客・求人</p>
     <h2 class="title reveal">人手不足の解消は、<br class="sp-br">集客と求人から。</h2>
     <p class="lead reveal d1">SNSで会社の魅力を伝え、お客さんも、働く人も集めます。<br class="sp-hide">求人の案内まで、自動で出し続けられます。</p>
     <div class="svc-grid">
       <div class="svc reveal">
         <div class="icon">📱</div>
-        <h4>SNS運用・自動投稿</h4>
+        <h4>SNS運用・集客</h4>
         <p>インスタの開設から投稿づくりまで。お店のCM動画も、決めた日時に自動で投稿されます。</p>
         <span class="result">実績：<b>3か月で20万アクセス</b></span>
         <p class="note">※ 集客の効果は、業種や投稿内容によって変わります。</p>

@@ -79,9 +79,6 @@
     font-weight: 700; font-size: 14px; color: var(--gray); border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; }
   .tabs a:hover { color: var(--ink); }
   .tabs a.on { color: var(--ink); border-bottom-color: var(--sun); }
-  .tabs .tab-home { color: var(--sun); margin-right: 6px; position: relative; }
-  .tabs .tab-home:hover { color: var(--ink); }
-  .tabs .tab-home::after { content: ''; position: absolute; right: -4px; top: 30%; bottom: 30%; width: 1px; background: var(--rule); }
 
   main { padding-top: calc(var(--head-h) + var(--tabs-h)); }
   section { scroll-margin-top: calc(var(--head-h) + var(--tabs-h) + 4px); }
@@ -202,12 +199,14 @@
   .btn.mail:hover { background: rgba(255,255,255,0.08); }
   .cta .hint { font-size: 14px; margin-top: 14px; color: rgba(255,255,255,0.6); }
 
-  /* ===== トップページへ戻る ===== */
-  .back-top { background: #fff; text-align: center; padding: 40px 20px; border-top: 1px solid var(--rule); }
-  .back-top a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: 16px;
-    color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: 14px 32px; transition: background-color .2s, color .2s; }
-  .back-top a:hover { background: var(--ink); color: #fff; }
-  .back-top .arrow { color: var(--sun); }
+  /* ===== トップに戻る（右下に浮かせて、どこからでも押せる） ===== */
+  .float-top { position: fixed; right: 20px; bottom: 84px; z-index: 97; display: inline-flex; align-items: center; gap: 8px;
+    background: #fff; color: var(--ink); text-decoration: none; font-weight: 900; font-size: 15px;
+    padding: 12px 20px; border-radius: 999px; border: 2px solid var(--ink);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.18); transition: transform .2s, box-shadow .2s, background-color .2s, color .2s; }
+  .float-top .arrow { color: var(--sun); font-size: 17px; line-height: 1; }
+  .float-top:hover, .float-top:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.26); background: var(--ink); color: #fff; }
+  .float-top:active { transform: translateY(-1px); }
 
   /* ===== フッター・下の固定バー（トップページと同じ） ===== */
   footer { background: #000; color: rgba(255,255,255,0.6); text-align: center; padding: 44px 20px 40px; }
@@ -267,6 +266,7 @@
     .stat-num b { font-size: 38px; }
       .btn { width: 100%; }
     .cta-bar .bar-line { flex: 0 0 74%; font-size: 15px; }
+    .float-top { right: 14px; bottom: 76px; font-size: 14px; padding: 10px 16px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html, .tabs ul { scroll-behavior: auto; }
@@ -304,7 +304,6 @@
 
 <nav class="tabs" aria-label="このページの目次">
   <ul>
-    <li><a href="../" class="tab-home">← トップ</a></li>
     <li><a href="#greeting" data-tab="greeting">ごあいさつ</a></li>
     <li><a href="#history" data-tab="history">経歴</a></li>
     <li><a href="#nagasaki" data-tab="nagasaki">長崎への想い</a></li>
@@ -500,10 +499,6 @@
   </div>
 </section>
 
-<div class="back-top">
-  <a href="../"><span class="arrow" aria-hidden="true">←</span>トップページに戻る</a>
-</div>
-
 </main>
 
 <footer>
@@ -514,6 +509,8 @@
   <div class="f-links"><a href="../">トップページ</a><a href="../#services">できること</a><a href="./">代表紹介</a><a href="../#faq">よくある質問</a></div>
   <p class="f-copy">© 2026 株式会社AIのアサヒ屋</p>
 </footer>
+
+<a href="../" class="float-top"><span class="arrow" aria-hidden="true">←</span>トップに戻る</a>
 
 <div class="cta-bar">
   <a href="https://line.me/R/ti/p/@340uxupd" target="_blank" rel="noopener" class="bar-line" data-line="about-bar">💬 LINEで無料相談</a>

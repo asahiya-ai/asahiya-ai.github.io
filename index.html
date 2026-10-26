@@ -570,6 +570,19 @@
   .yt-grid figure { margin: 0; }
   .yt-grid .video-facade { aspect-ratio: 4 / 3; }
   .yt-grid figcaption { font-size: 14px; font-weight: 700; margin-top: 8px; text-align: center; }
+  .yt-new { display: flex; align-items: center; gap: 32px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+  .yt-new-video { flex: 0 0 240px; }
+  .yt-new-text { flex: 1; }
+  .yt-new-tag { display: inline-block; font-size: 12px; font-weight: 900; letter-spacing: 0.08em; color: #fff; background: var(--sun); border-radius: 999px; padding: 3px 12px; margin-bottom: 10px; }
+  .yt-new-catch { font-size: 22px; font-weight: 900; line-height: 1.5; margin-bottom: 12px; }
+  .yt-new-catch b { color: var(--sun); }
+  .yt-new-text p { font-size: 15px; line-height: 1.9; margin-bottom: 10px; }
+  .yt-new-text p.yt-new-catch { font-size: 22px; line-height: 1.5; }
+  .yt-new-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none;
+    border: 2px solid var(--border); border-radius: 999px; padding: 8px 18px; margin-top: 4px; transition: transform 0.2s, border-color 0.2s; }
+  .yt-new-link:hover { border-color: var(--sun); transform: translateY(-2px); }
+  .yt-new-link .arrow { color: var(--sun); }
+  .yt-sub { font-size: 14px; font-weight: 700; color: var(--gray); margin-bottom: 10px; }
   .yt-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none;
     border: 2px solid var(--border); border-radius: 999px; padding: 8px 16px; background: #fff; transition: border-color 0.2s, transform 0.2s; }
   .yt-link:hover { border-color: #FF0000; transform: translateY(-2px); }
@@ -695,6 +708,9 @@
     .promises { grid-template-columns: 1fr; }
     .fde-world ul { grid-template-columns: 1fr; }
     .cm-row { flex-direction: column; text-align: center; }
+    .yt-new { flex-direction: column; text-align: center; }
+    .yt-new-video { flex: none; width: 220px; }
+    .yt-new-catch, .yt-new-text p.yt-new-catch { font-size: 20px; }
     .ad-row { grid-template-columns: 1fr 1fr; }
     .ad-text { grid-column: 1 / -1; text-align: center; }
     .report-card { flex-direction: column; align-items: stretch; }
@@ -999,6 +1015,23 @@
         <p>YouTube でも公開しています。</p>
         <a href="https://www.youtube.com/@asahiya-ai" target="_blank" rel="noopener" class="yt-link"><span class="yt-ico" aria-hidden="true"></span>YouTube @asahiya-ai</a>
       </div>
+      <div class="yt-new">
+        <div class="yt-new-video">
+          <button type="button" class="video-facade" data-yt="62-Oxye9i7E" data-title="AIを雇いませんか？" style="background-image:url('https://i.ytimg.com/vi/62-Oxye9i7E/oar2.jpg')" aria-label="新作CM「AIを雇いませんか？」を再生">
+            <span class="play" aria-hidden="true"></span>
+            <span class="label">▶ 新作CMを見る</span>
+          </button>
+        </div>
+        <div class="yt-new-text">
+          <p class="yt-new-tag">新作CM</p>
+          <p class="yt-new-catch">パートさんを雇う前に、<br><b>AI</b>を雇いませんか？</p>
+          <p>「人を募集しても、来ない」「急に休まれて、社長が夜中に見積を書いている」。<br class="sp-hide">そんなことはありませんか？</p>
+          <p>見積も議事録も、お客様へのメールの下書きも。AIが<b>あなたの秘書</b>として引き受けます。<br class="sp-hide">AIは休みません。辞めません。急なお休みもありません。</p>
+          <p>最後は社長が確かめるだけ。大きなシステムは要りません。今の仕事を、そのままAIに。</p>
+          <a href="#contact" class="yt-new-link">まずは無料相談から <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <p class="yt-sub">これまでのCM</p>
       <div class="yt-grid">
         <figure>
           <button type="button" class="video-facade" data-yt="fJHjCugsUPA" data-title="AIのアサヒ屋 CM" style="background-image:url('https://i.ytimg.com/vi/fJHjCugsUPA/hqdefault.jpg')" aria-label="AIのアサヒ屋 CMを再生">

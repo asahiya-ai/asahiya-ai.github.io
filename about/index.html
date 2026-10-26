@@ -79,6 +79,9 @@
     font-weight: 700; font-size: 14px; color: var(--gray); border-bottom: 3px solid transparent; transition: color .2s, border-color .2s; }
   .tabs a:hover { color: var(--ink); }
   .tabs a.on { color: var(--ink); border-bottom-color: var(--sun); }
+  .tabs .tab-home { color: var(--sun); margin-right: 6px; position: relative; }
+  .tabs .tab-home:hover { color: var(--ink); }
+  .tabs .tab-home::after { content: ''; position: absolute; right: -4px; top: 30%; bottom: 30%; width: 1px; background: var(--rule); }
 
   main { padding-top: calc(var(--head-h) + var(--tabs-h)); }
   section { scroll-margin-top: calc(var(--head-h) + var(--tabs-h) + 4px); }
@@ -199,6 +202,13 @@
   .btn.mail:hover { background: rgba(255,255,255,0.08); }
   .cta .hint { font-size: 14px; margin-top: 14px; color: rgba(255,255,255,0.6); }
 
+  /* ===== トップページへ戻る ===== */
+  .back-top { background: #fff; text-align: center; padding: 40px 20px; border-top: 1px solid var(--rule); }
+  .back-top a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: 16px;
+    color: var(--ink); border: 2px solid var(--ink); border-radius: 999px; padding: 14px 32px; transition: background-color .2s, color .2s; }
+  .back-top a:hover { background: var(--ink); color: #fff; }
+  .back-top .arrow { color: var(--sun); }
+
   /* ===== フッター・下の固定バー（トップページと同じ） ===== */
   footer { background: #000; color: rgba(255,255,255,0.6); text-align: center; padding: 44px 20px 40px; }
   footer .f-logo { width: 240px; height: 134px; object-fit: contain; margin: 0 auto 16px; }
@@ -294,6 +304,7 @@
 
 <nav class="tabs" aria-label="このページの目次">
   <ul>
+    <li><a href="../" class="tab-home">← トップ</a></li>
     <li><a href="#greeting" data-tab="greeting">ごあいさつ</a></li>
     <li><a href="#history" data-tab="history">経歴</a></li>
     <li><a href="#nagasaki" data-tab="nagasaki">長崎への想い</a></li>
@@ -488,6 +499,10 @@
     <p class="hint">LINEには「HPを見ました」の一言だけで大丈夫です。</p>
   </div>
 </section>
+
+<div class="back-top">
+  <a href="../"><span class="arrow" aria-hidden="true">←</span>トップページに戻る</a>
+</div>
 
 </main>
 

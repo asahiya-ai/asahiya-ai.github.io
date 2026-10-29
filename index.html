@@ -5,21 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>株式会社 AIのアサヒ屋｜佐世保・長崎の中小企業専門 現場密着型のAI導入</title>
-<meta name="description" content="佐世保・長崎の中小企業専門の現場密着型AI導入（FDE）。AI顧問・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。現場に入り込んで、いっしょに作ります。ご相談はLINEから。">
-<meta name="keywords" content="佐世保 AI,長崎 AI導入,中小企業 AI,業務改善,AI顧問,議事録 AI,経営分析,シフト作成,見積作成,AI研修,SNS運用,インスタ 自動投稿,ホームページ作成,求人 自動化,FDE,現場密着">
+<meta name="description" content="パートさんを雇う前に、AIを雇いませんか？佐世保・長崎の中小企業専門の現場密着型AI導入（FDE）。AI事務員・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。現場に入り込んで、いっしょに作ります。ご相談はLINEから。">
+<meta name="keywords" content="佐世保 AI,長崎 AI導入,中小企業 AI,業務改善,AI事務員,AIを雇う,議事録 AI,経営分析,シフト作成,見積作成,AI研修,SNS運用,インスタ 自動投稿,ホームページ作成,求人 自動化,FDE,現場密着">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://asahiya-ai.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="株式会社 AIのアサヒ屋｜佐世保・長崎の中小企業専門 現場密着型のAI導入">
-<meta property="og:description" content="現場に入り込んで、いっしょに作る。AI顧問・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。ご相談はLINEから。">
+<meta property="og:description" content="パートさんを雇う前に、AIを雇いませんか？AI事務員・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。ご相談はLINEから。">
 <meta property="og:url" content="https://asahiya-ai.com/">
 <meta property="og:site_name" content="株式会社 AIのアサヒ屋">
 <meta property="og:locale" content="ja_JP">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="株式会社 AIのアサヒ屋｜佐世保・長崎の中小企業専門 現場密着型のAI導入">
-<meta name="twitter:description" content="現場に入り込んで、いっしょに作る。AI顧問・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。ご相談はLINEから。">
+<meta name="twitter:description" content="パートさんを雇う前に、AIを雇いませんか？AI事務員・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。ご相談はLINEから。">
 
 <script type="application/ld+json">
 {
@@ -29,11 +29,11 @@
   "legalName": "株式会社AIのアサヒ屋",
   "alternateName": "AIのアサヒ屋",
   "logo": "https://asahiya-ai.com/images/logo-kabushiki.png",
-  "description": "佐世保・長崎の中小企業専門の現場密着型AI導入サービス。AI顧問・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。",
+  "description": "佐世保・長崎の中小企業専門の現場密着型AI導入サービス。AI事務員・議事録アプリ・経営分析・シフト作成・見積作成・AI研修・SNS運用・HP作成・求人の自動化。",
   "url": "https://asahiya-ai.com/",
   "founder": {"@type": "Person", "name": "三宅 耕平"},
   "address": {"@type": "PostalAddress", "addressLocality": "佐世保市", "addressRegion": "長崎県", "addressCountry": "JP"},
-  "serviceType": ["AI顧問", "議事録アプリ", "経営分析", "シフト作成", "見積作成", "AI研修", "SNS運用・自動投稿", "ホームページ作成", "求人募集の自動化"],
+  "serviceType": ["AI事務員", "議事録アプリ", "経営分析", "シフト作成", "見積作成", "AI研修", "SNS運用・自動投稿", "ホームページ作成", "求人募集の自動化"],
   "areaServed": [{"@type": "City", "name": "佐世保市"}, {"@type": "State", "name": "長崎県"}]
 }
 </script>
@@ -174,9 +174,34 @@
   .hero-win:focus-visible { outline-offset: -3px; }
 
   /* ===== FDEって何？ ===== */
-  #cm { padding-top: 40px; padding-bottom: 48px; }
-  #cm .yt-row { margin-top: 0; padding: 0; }
-  #cm .yt-new { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
+  /* 最初の画面の右：CM「AIを雇いませんか？」（縦動画。画面の高さに収める） */
+  .hero-cm { flex: 0 0 54%; max-width: 54%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; padding: 32px 24px; background: var(--cream); }
+  .hero-cm .video-facade { width: min(340px, calc((100vh - 230px) * 9 / 16)); min-width: 220px; box-shadow: 0 20px 50px rgba(0,0,0,0.22); }
+  .hero-cm-cap { font-size: 14px; font-weight: 700; color: var(--gray); }
+  .hero-nos { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .hero-nos span { background: var(--cream); border-left: 4px solid var(--sun); padding: 4px 12px; font-size: 15px; font-weight: 700; }
+
+  /* ===== パートさんとAI事務員を比べる ===== */
+  #hire { padding-top: 56px; padding-bottom: 56px; }
+  .hire-vs { max-width: 760px; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 36px;
+    box-shadow: 0 14px 36px rgba(0,0,0,0.08); }
+  .hire-vs table { width: 100%; border-collapse: collapse; font-size: 15.5px; line-height: 1.6; }
+  .hire-vs th, .hire-vs td { padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .hire-vs thead th { font-size: 16px; font-weight: 900; }
+  .hire-vs thead th:nth-child(2) { background: var(--cream); }
+  .hire-vs thead th:nth-child(3) { background: var(--sun); color: #fff; }
+  .hire-vs tbody th { width: 8.5em; color: var(--gray); font-size: 14px; font-weight: 700; }
+  .hire-vs td:nth-child(3) { font-weight: 700; background: #FFF4F0; }
+  .hire-vs .num { font-variant-numeric: tabular-nums; }
+  .hire-src { font-size: 12.5px; color: var(--gray); padding: 12px 16px; line-height: 1.7; }
+  .hire-how { font-size: 20px; font-weight: 900; margin-bottom: 14px; }
+  .hire-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .hire-step { background: var(--cream); border-top: 4px solid var(--sun); border-radius: 8px; padding: 20px 18px; }
+  .hire-step .n { font-size: 13px; font-weight: 900; letter-spacing: 0.1em; color: var(--sun); }
+  .hire-step h3 { font-size: 17.5px; font-weight: 900; line-height: 1.5; margin: 4px 0 6px; }
+  .hire-step p { font-size: 14.5px; color: var(--gray); line-height: 1.7; }
+  .hire-more { margin-top: 22px; }
   #fde { background: var(--cream); }
   .fde-answer { font-size: clamp(18px, 2.4vw, 24px); font-weight: 900; color: var(--teal); margin-bottom: 14px; line-height: 1.6; }
   .fde-wrap { display: flex; gap: 36px; align-items: flex-start; }
@@ -248,7 +273,7 @@
   .card:hover .more .pl { transform: scale(1.12); }
   .svc-imagine { font-size: 13px; color: var(--gray); margin-top: 16px; }
 
-  /* AI顧問（5つをまとめて任せるプラン） */
+  /* AI事務員を雇う（5つの仕事をまとめて任せるプラン。クラス名は旧「AI顧問」のまま） */
   .komon { position: relative; overflow: hidden; overflow: clip; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px;
     background: var(--ink); color: #fff; border-radius: 14px; padding: 34px; }
   .komon::before { content: ''; position: absolute; left: -180px; bottom: -260px; width: 560px; height: 560px; border-radius: 50%; pointer-events: none;
@@ -473,7 +498,7 @@
   .t-done { align-self: flex-start; font-size: 12.5px; font-weight: 700; color: var(--teal); display: inline-flex; align-items: center; gap: 6px; }
   .t-done::before { content: '✓'; display: grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; background: var(--teal); color: #fff; font-size: 11px; }
 
-  /* AI顧問：1か月の流れ */
+  /* AI事務員：1か月の流れ */
   .sc-komon .st { grid-template-columns: 1.15fr 1fr; align-items: center; }
   .km-cal .pill { margin-left: auto; }
   .km-wk { display: grid; grid-template-columns: 60px 1fr; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--border); min-height: 62px; }
@@ -702,6 +727,12 @@
     .hero-split { flex-direction: column; min-height: 0; }
     .hero-text { flex: none; max-width: 100%; padding: 36px 20px 32px; }
     .hero-windows { flex: none; max-width: 100%; height: 360px; gap: 6px; padding: 0 12px 20px; }
+    .hero-cm { flex: none; max-width: 100%; padding: 28px 20px 32px; }
+    .hero-cm .video-facade { width: 240px; min-width: 0; }
+    .hire-steps { grid-template-columns: 1fr; }
+    .hire-vs table { font-size: 14.5px; }
+    .hire-vs th, .hire-vs td { padding: 12px 10px; }
+    .hire-vs tbody th { width: 6.5em; font-size: 13px; }
     .hero-win-h { padding: 0 16px 18px; }
     .hero-win-title { font-size: 19px; }
     .hero-win-desc { font-size: 13px; }
@@ -795,9 +826,10 @@
     <div class="hero-text">
       <div class="hero-text-inner">
         <img src="images/logo-kabushiki.png" alt="株式会社 AIのアサヒ屋 ロゴ" class="hero-logo" width="640" height="358">
-        <p class="hero-tag">佐世保・長崎の中小企業専門｜現場密着型のAI導入</p>
-        <h1 class="hero-catch">人からAIへ<br>採用の前に、<span class="accent">AI導入。</span></h1>
-        <p class="hero-sub">現場に入り込んで、いっしょに作ります。</p>
+        <p class="hero-tag">佐世保・長崎の中小企業専門｜AIを雇う、という選び方</p>
+        <h1 class="hero-catch"><span class="nb">パートさんを</span><span class="nb">雇う前に、</span><br><span class="accent">AIを雇いませんか？</span></h1>
+        <div class="hero-nos"><span>休みません。</span><span>辞めません。</span><span>急なお休みもありません。</span></div>
+        <p class="hero-sub">見積も、議事録も、メールの下書きも。<br>御社のやり方を覚えたAI事務員が引き受けます。</p>
         <p class="hero-fde"><b>FDE</b>現場密着型のAI導入担当が伺います</p>
         <a class="hero-more" href="#marketing">
           <span><span class="nb"><b>ホームページ作成</b>も、</span><span class="nb"><b>SNS運用・集客</b>も、お手伝いします。</span></span>
@@ -809,55 +841,42 @@
         </div>
       </div>
     </div>
-    <div class="hero-windows" aria-label="主なサービス">
-      <a class="hero-win" href="#services">
-        <img src="images/results/results-seminar.jpg" alt="" width="1600" height="1066" style="object-position: 55% 40%;" fetchpriority="high">
-        <span class="hero-win-shade"></span>
-        <span class="hero-win-v" aria-hidden="true">AI研修</span>
-        <span class="hero-win-h"><span class="hero-win-title">AI研修</span><span class="hero-win-desc">経営者・後継者・エース社員向け。自分の仕事にそのまま使える形で学びます。</span></span>
-      </a>
-      <a class="hero-win" href="#marketing">
-        <img src="images/hero/hero-2.jpg" alt="" width="1920" height="1092" style="object-position: 32% 40%;">
-        <span class="hero-win-shade"></span>
-        <span class="hero-win-v" aria-hidden="true">ホームページ・SNS集客</span>
-        <span class="hero-win-h"><span class="hero-win-title">ホームページ作成<br>SNS運用・集客</span><span class="hero-win-desc">スマホで見やすいHPから、インスタの投稿まで。求人の案内も、決めた日時に自動で出し続けます。</span></span>
-      </a>
-      <a class="hero-win" href="#services">
-        <img src="images/about/about-profile.jpg" alt="" width="900" height="1274" style="object-position: 30% 40%;">
-        <span class="hero-win-shade"></span>
-        <span class="hero-win-v" aria-hidden="true">アプリ制作</span>
-        <span class="hero-win-h"><span class="hero-win-title">アプリ制作</span><span class="hero-win-desc">議事録、納品書の入力、シフト作成。御社の手作業に合わせて、いっしょに作ります。</span></span>
-      </a>
+    <!-- CM「AIを雇いませんか？」 -->
+    <div class="hero-cm">
+      <button type="button" class="video-facade" data-yt="62-Oxye9i7E" data-title="AIを雇いませんか？" style="background-image:url('https://i.ytimg.com/vi/62-Oxye9i7E/oar2.jpg')" aria-label="CM「AIを雇いませんか？」を再生">
+        <span class="play" aria-hidden="true"></span>
+        <span class="label">▶ CM「AIを雇いませんか？」</span>
+      </button>
+      <p class="hero-cm-cap">30秒のCMです。音が出ます。</p>
     </div>
   </div>
 </section>
 
-<!-- FDEって何？ -->
-<!-- 新作CM：トップのすぐ下 -->
-<section id="cm">
+<!-- パートさんとAI事務員を比べる＋雇い方 -->
+<section id="hire">
   <div class="inner">
-    <div class="yt-row reveal">
-      <div class="yt-head">
-        <p>YouTube でも公開しています。</p>
-        <a href="https://www.youtube.com/@asahiya-ai" target="_blank" rel="noopener" class="yt-link"><span class="yt-ico" aria-hidden="true"></span>YouTube @asahiya-ai</a>
-      </div>
-      <div class="yt-new">
-        <div class="yt-new-video">
-          <button type="button" class="video-facade" data-yt="62-Oxye9i7E" data-title="AIを雇いませんか？" style="background-image:url('https://i.ytimg.com/vi/62-Oxye9i7E/oar2.jpg')" aria-label="新作CM「AIを雇いませんか？」を再生">
-            <span class="play" aria-hidden="true"></span>
-            <span class="label">▶ 新作CMを見る</span>
-          </button>
-        </div>
-        <div class="yt-new-text">
-          <p class="yt-new-tag">新作CM</p>
-          <p class="yt-new-catch">パートさんを雇う前に、<br><b>AI</b>を雇いませんか？</p>
-          <p>「人を募集しても、来ない」「急に休まれて、社長が夜中に見積を書いている」。<br class="sp-hide">そんなことはありませんか？</p>
-          <p>見積も議事録も、お客様へのメールの下書きも。AIが<b>あなたの秘書</b>として引き受けます。<br class="sp-hide">AIは休みません。辞めません。急なお休みもありません。</p>
-          <p>最後は社長が確かめるだけ。大きなシステムは要りません。今の仕事を、そのままAIに。</p>
-          <a href="#contact" class="yt-new-link">まずは無料相談から <span class="arrow">→</span></a>
-        </div>
-      </div>
+    <p class="eyebrow reveal">AIを雇う</p>
+    <h2 class="title reveal">パートさんと、<br class="sp-br">AI事務員を比べてみると。</h2>
+    <p class="lead reveal d1">長崎県の最低賃金は、2026年11月2日から時間額1,087円。<br class="sp-hide">人を増やす前に、AI事務員という選び方があります。</p>
+    <div class="hire-vs reveal d1">
+      <table>
+        <thead><tr><td></td><th scope="col">パートさん</th><th scope="col">AI事務員</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">来てもらうまで</th><td>募集しても、来ないことも</td><td>募集は要りません</td></tr>
+          <tr><th scope="row">お休み</th><td>急なお休みもある</td><td>休みません</td></tr>
+          <tr><th scope="row">覚えた仕事</th><td>人が替わると、教え直し</td><td>覚えたことは忘れません</td></tr>
+          <tr><th scope="row">月の費用（例）</th><td class="num">時給1,087円×月80時間<br>＝ 約87,000円</td><td class="num">月額29,800円から（税別）</td></tr>
+        </tbody>
+      </table>
+      <p class="hire-src">※ パートさんの例は1日4時間×月20日。求人の費用などは含みません。AI事務員は、任せる仕事に合わせてお見積りします。<br>最低賃金：長崎労働局 2026年9月29日発表（11月2日発効）</p>
     </div>
+    <p class="hire-how reveal">雇い方は、3つだけ。</p>
+    <div class="hire-steps">
+      <div class="hire-step reveal d1"><p class="n">STEP 1</p><h3>任せたい仕事を1つ決める</h3><p>「見積だけ」「議事録だけ」で大丈夫です。</p></div>
+      <div class="hire-step reveal d2"><p class="n">STEP 2</p><h3>現場で、AIに仕事を教える</h3><p>今ある書類・Excel・紙の台帳から、御社のやり方を覚えさせます。</p></div>
+      <div class="hire-step reveal d3"><p class="n">STEP 3</p><h3>AI事務員が働き、社長は確かめるだけ</h3><p>下書きはAI、送るのは人。月1回、働きぶりを一緒に見直します。</p></div>
+    </div>
+    <p class="hire-more reveal"><a href="#komon" class="yt-new-link">AI事務員プランを見る <span class="arrow">→</span></a></p>
   </div>
 </section>
 
@@ -966,12 +985,12 @@
     </div>
     <p class="app-fee reveal">アプリの利用料は、<b>月額5,000円</b>から。</p>
 
-    <!-- AI顧問：上の5つを、まとめて任せるプラン -->
+    <!-- AI事務員を雇う：上の5つを、まとめて任せるプラン -->
     <div class="komon reveal" id="komon">
       <div class="komon-intro">
-        <p class="komon-kicker">まとめて任せたい会社へ</p>
-        <h3 class="komon-title">AI顧問</h3>
-        <p class="komon-lead">社外のAI責任者として、毎月いっしょに進めます。上の5つから、御社のいまに合うものを組み合わせます。</p>
+        <p class="komon-kicker">パートさんを雇う前に</p>
+        <h3 class="komon-title">AI事務員を雇う</h3>
+        <p class="komon-lead">上の5つの仕事を、御社のやり方を覚えたAI事務員が引き受けます。現場でAIに仕事を教え、毎月いっしょに働きぶりを見直します。</p>
         <p class="komon-range">月額 <b>29,800</b>円から <span>（税別）</span></p>
         <button type="button" class="ghost" data-open="komon" aria-haspopup="dialog">1か月の流れを見る</button>
       </div>
@@ -979,11 +998,11 @@
         <div class="plan">
           <p class="plan-name">ライト</p>
           <p class="plan-price"><b>29,800</b>円／月から</p>
-          <p class="plan-for">まず、相談相手がほしい</p>
+          <p class="plan-for">まず、1つの仕事から任せたい</p>
           <ul>
             <li>月1回の定例（訪問またはオンライン・1時間）</li>
             <li>LINEでいつでも質問OK（お返事は平日）</li>
-            <li>御社に合うAIの使い方を毎月ご提案</li>
+            <li>次にAIに任せる仕事を、毎月ご提案</li>
           </ul>
         </div>
       </div>
@@ -1356,7 +1375,7 @@
 <template id="tpl-komon">
 <div class="scene sc-komon" aria-hidden="true"><div class="st">
   <div class="km-cal win fx-up" style="--t:0">
-    <div class="win-bar">今月の顧問の動き<span class="pill">○月</span></div>
+    <div class="win-bar">今月のAI事務員の動き<span class="pill">○月</span></div>
     <div class="km-weeks">
       <div class="km-wk"><span class="wl">1週目</span><span class="ev ev-mtg fx-pop" style="--t:.4">定例ミーティング</span></div>
       <div class="km-wk"><span class="wl">2週目</span><span class="ev ev-build fx-pop" style="--t:1.3">見積書のひな形をAIで作る</span></div>
@@ -1592,7 +1611,7 @@
         window.addEventListener('resize', function () { thumbs.forEach(fitThumb); });
       }
 
-      /* 押すと、その画面（AI顧問はその枠）から広がる。前へ・次へで6つを順に見られる */
+      /* 押すと、その画面（AI事務員はその枠）から広がる。前へ・次へで6つを順に見られる */
       var items = Array.prototype.slice.call(document.querySelectorAll('#services [data-open]')).map(function (btn) {
         var box = btn.closest('.card, .komon');
         var note = box.querySelector('.c-note');

@@ -147,7 +147,8 @@
   .promises li + li { padding-left: 24px; border-left: 1px solid var(--rule); }
   .promises b { display: block; font-family: var(--serif); font-weight: 700; font-size: 19px; color: var(--ink); margin-bottom: 6px; }
   .promises span { font-size: 15px; line-height: 1.8; }
-  .mission { margin-top: 56px; text-align: center; }
+  .mission { margin-top: 56px; display: flex; align-items: center; justify-content: center; gap: clamp(24px, 4vw, 48px); text-align: center; }
+  .mission-logo { flex: none; width: clamp(200px, 26vw, 260px); height: auto; }
   .mission p { font-family: var(--serif); font-weight: 700; font-size: clamp(20px, 2.8vw, 27px); line-height: 1.7; color: var(--ink); }
   .mission small { display: block; font-size: 13px; color: var(--gray); margin-top: 8px; }
 
@@ -243,6 +244,9 @@
     .greet, .kick, .career { grid-template-columns: 1fr; gap: 40px; }
     .promises { grid-template-columns: 1fr; }
     .promises li, .promises li + li { padding: 18px 0; border-left: none; }
+  }
+  @media (max-width: 680px) {
+    .mission { flex-direction: column; gap: 20px; }
   }
   @media (max-width: 560px) {
     :root { --head-h: 56px; --tabs-h: 44px; }
@@ -407,8 +411,11 @@
     </ul>
 
     <div class="mission">
-      <p>西から太陽が昇るように、<br>AIで長崎に新しい朝を。</p>
-      <small>AIのアサヒ屋の理念です。</small>
+      <img src="../images/logo-kabushiki.png" alt="株式会社 AIのアサヒ屋" class="mission-logo" loading="lazy" width="640" height="358">
+      <div>
+        <p>西から太陽が昇るように、<br>AIで長崎に新しい朝を。</p>
+        <small>AIのアサヒ屋の理念です。</small>
+      </div>
     </div>
   </div>
 </section>

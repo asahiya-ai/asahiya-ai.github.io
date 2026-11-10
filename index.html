@@ -53,7 +53,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -225,7 +225,11 @@
     line-height: 30px; text-align: center; border-radius: 50%; margin-bottom: 10px; font-size: 15px; }
   .promise h3 { font-size: 16.5px; font-weight: 900; margin-bottom: 6px; line-height: 1.5; }
   .promise p { font-size: 14.5px; color: var(--gray); line-height: 1.75; margin: 0; }
-  .mission { font-size: clamp(16px, 2vw, 19px); font-weight: 900; color: var(--sun); margin: 6px 0 14px; }
+  .creed { margin-top: 40px; padding: 36px 24px; background: #fff; border-radius: 8px; display: flex; align-items: center; justify-content: center; gap: clamp(24px, 4vw, 48px); text-align: center; }
+  .creed-logo { flex: none; width: clamp(200px, 26vw, 260px); height: auto; }
+  .creed-text p { font-family: 'Noto Serif JP', 'Yu Mincho', serif; font-weight: 700; font-size: clamp(20px, 2.8vw, 27px); line-height: 1.7; color: var(--ink); }
+  .creed-text small { display: block; font-size: 13px; color: var(--gray); margin-top: 8px; }
+  @media (max-width: 680px) { .creed { flex-direction: column; gap: 20px; padding: 32px 18px; } }
   .source { font-size: 13px; color: var(--gray); font-weight: 400; }
   .highlight { background: linear-gradient(transparent 62%, rgba(232,64,28,0.25) 62%); font-weight: 700; }
 
@@ -928,8 +932,13 @@
           <small class="source">（総務省 2025年 住民基本台帳人口移動報告）</small><br>
           人を増やせないなら、一人ひとりの仕事をAIでラクにする。
         </p>
-        <p class="mission reveal d4">「西から太陽が昇るように、AIで長崎に新しい朝を届ける」</p>
-        <p class="reveal d4">これが、アサヒ屋の理念です。</p>
+      </div>
+    </div>
+    <div class="creed reveal">
+      <img src="images/logo-kabushiki.png" alt="株式会社 AIのアサヒ屋" class="creed-logo" loading="lazy" width="640" height="358">
+      <div class="creed-text">
+        <p>西から太陽が昇るように、<br>AIで長崎に新しい朝を。</p>
+        <small>AIのアサヒ屋の理念です。</small>
       </div>
     </div>
   </div>
@@ -1094,7 +1103,7 @@
       <span class="report-thumb"><img src="about/images/card.jpg?v=20261026" width="436" height="291" loading="lazy" alt="スーツ姿の代表 三宅耕平"></span>
       <span class="report-body">
         <span class="eyebrow">代表紹介</span>
-        <span class="report-title">神戸から来て、佐世保で生きると決めました。</span>
+        <span class="report-title">神戸から長崎に移住してきました。</span>
         <span class="report-desc">代表 三宅耕平のごあいさつと経歴です。お仕事は、原則 長崎県内（県外はご紹介のみ）。佐世保キックボクシング倶楽部の活動も。</span>
         <span class="report-more">代表紹介を見る <span class="arrow">→</span></span>
       </span>

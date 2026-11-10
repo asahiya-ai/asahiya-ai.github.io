@@ -24,3 +24,5 @@ node_modules/
 /*.jpg
 /*.png
 .claude/
+# 社内向けの資料（公開しない）
+/IT補助金申請、営業資料.docx

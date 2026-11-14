@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /OLD/
+
+Sitemap: https://asahiya-ai.com/sitemap.xml

@@ -669,6 +669,11 @@
   .yt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .yt-grid figure { margin: 0; }
   .yt-grid .video-facade { aspect-ratio: 4 / 3; }
+  .yt-grid.tall { max-width: 720px; margin: 0 auto; }
+  .yt-grid.tall .video-facade { aspect-ratio: 9 / 16; }
+  #nagaben { scroll-margin-top: calc(var(--head-h) + 64px); }
+  .hero-cm-more { display: inline-block; margin-top: 6px; font-size: 14px; font-weight: 700; color: var(--sun); text-decoration: none; }
+  .hero-cm-more:hover { text-decoration: underline; }
   .yt-grid figcaption { font-size: 14px; font-weight: 700; margin-top: 8px; text-align: center; }
   .yt-new { display: flex; align-items: center; gap: 32px; margin-bottom: 22px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
   .yt-new-video { flex: 0 0 240px; }
@@ -846,6 +851,9 @@
     .cm-row { padding: 20px 16px; gap: 20px; }
     .yt-row { padding: 18px 16px; }
     .yt-grid { grid-template-columns: 1fr; gap: 16px; }
+    /* 長崎弁の縦動画はスマホでは指で横に送る */
+    .yt-grid.tall { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; margin: 0 -4px; }
+    .yt-grid.tall figure { flex: 0 0 62%; scroll-snap-align: start; }
     .works-row { padding: 18px 16px; }
     .works-grid { grid-template-columns: 1fr; gap: 16px; }
     #news { padding: 14px 18px; }
@@ -930,7 +938,7 @@
         <span class="play" aria-hidden="true"></span>
         <span class="label">▶ CM（長崎弁版）</span>
       </button>
-      <p class="hero-cm-cap">長崎弁のCMです（33秒）。音が出ます。</p>
+      <p class="hero-cm-cap">長崎弁のCMです（33秒）。音が出ます。<br><a href="#nagaben" class="hero-cm-more">ほかの長崎弁CMも見る →</a></p>
     </div>
   </div>
 </section>
@@ -940,9 +948,9 @@
   <div class="inner">
     <p class="news-label">最新の更新情報</p>
     <ul class="news-list">
+      <li><a href="#nagaben"><time datetime="2026-11-19">2026.11.19</time><span class="news-tag">動画</span><span class="news-t">長崎弁のCMを3本増やしました</span><span class="arrow" aria-hidden="true">→</span></a></li>
       <li><a href="#works"><time datetime="2026-11-13">2026.11.13</time><span class="news-tag">実績</span><span class="news-t">「これまでに作ったホームページ」を載せました</span><span class="arrow" aria-hidden="true">→</span></a></li>
       <li><a href="#hero"><time datetime="2026-11-11">2026.11.11</time><span class="news-tag">動画</span><span class="news-t">長崎弁のCMをトップに載せました</span><span class="arrow" aria-hidden="true">→</span></a></li>
-      <li><a href="about/"><time datetime="2026-10-20">2026.10.20</time><span class="news-tag">お知らせ</span><span class="news-t">代表紹介のページを作りました</span><span class="arrow" aria-hidden="true">→</span></a></li>
     </ul>
   </div>
 </section>
@@ -1195,6 +1203,30 @@
       <div class="cm-text">
         <p>アサヒ屋のCMも、この仕組みで作って出しています。</p>
         <a href="https://www.instagram.com/ai_asahiya/" target="_blank" rel="noopener" class="insta"><span class="ig" aria-hidden="true"></span>Instagram @ai_asahiya</a>
+      </div>
+    </div>
+
+    <div class="yt-row reveal" id="nagaben">
+      <p class="yt-sub">長崎弁のCM（縦の短い動画・音が出ます）</p>
+      <div class="yt-grid tall">
+        <figure>
+          <button type="button" class="video-facade" data-yt="vYiLkxDIhcs" data-title="長崎弁のCM：AI研修" style="background-image:url('https://i.ytimg.com/vi/vYiLkxDIhcs/oar2.jpg')" aria-label="長崎弁のCM「AI研修」を再生">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption>AI研修</figcaption>
+        </figure>
+        <figure>
+          <button type="button" class="video-facade" data-yt="Pd9a7aaZ4ho" data-title="長崎弁のCM：パワハラ言わんばい" style="background-image:url('https://i.ytimg.com/vi/Pd9a7aaZ4ho/oar2.jpg')" aria-label="長崎弁のCM「パワハラ言わんばい」を再生">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption>パワハラ言わんばい</figcaption>
+        </figure>
+        <figure>
+          <button type="button" class="video-facade" data-yt="-fyT7UEzoU4" data-title="長崎弁のCM：人手不足" style="background-image:url('https://i.ytimg.com/vi/-fyT7UEzoU4/oar2.jpg')" aria-label="長崎弁のCM「人手不足」を再生">
+            <span class="play" aria-hidden="true"></span>
+          </button>
+          <figcaption>人手不足</figcaption>
+        </figure>
       </div>
     </div>
 
